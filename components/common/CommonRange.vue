@@ -11,8 +11,9 @@
       @click="toggleStatus ? visible = !visible : null"
       >
       <label v-html="options?.label" />
-      <SvgIcon
+      <NuxtIcon
         v-if="toggleStatus"
+        filled
         name="arrowRight"
         class="stroke_black transition-transform"
         width="6"
@@ -42,8 +43,9 @@
               v-if="item.val"
               v-html="item.val"
             />
-            <SvgIcon
+            <NuxtIcon
               v-if="toggleStatus && !groupHasParent"
+              filled
               name="arrowRight"
               class="stroke_black transition-transform"
               width="6"
@@ -61,7 +63,6 @@
                   class="flex-1"
                   :options="{
                     setValue: `${form[item.key] && form[item.key][0]}`,
-                    updateValue: `${form[item.key] && form[item.key][0]}`,
                     min: Number(item.min),
                     max: Number(item.max),
                     inputmode: 'numeric',
@@ -78,7 +79,6 @@
                   class="flex-1"
                   :options="{
                     setValue: `${form[item.key] && form[item.key][1]}`,
-                    updateValue: `${form[item.key] && form[item.key][1]}`,
                     min: Number(item.min),
                     max: Number(item.max),
                     inputmode: 'numeric',

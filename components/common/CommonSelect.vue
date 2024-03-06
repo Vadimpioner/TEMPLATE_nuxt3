@@ -139,7 +139,7 @@
       }
       &.done {
         background-color: rgba($green, .05);
-        .el-input {
+        .el-select__wrapper {
           border-color: $green !important;
         }
       }
@@ -192,6 +192,9 @@
         @include value_adaptive(column-gap, 16, 8);
         @include value_adaptive(padding-left, 24, 16);
         @include value_adaptive(height, 50, 42);
+        &.is-hovering {
+          border-color: $green !important;
+        }
         &.is-focused {
           z-index: 1;
           border-color: $blue !important;

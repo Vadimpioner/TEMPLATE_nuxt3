@@ -64,12 +64,12 @@ export default async () => defineNuxtConfig({
   modules: [
     'nuxt-swiper',
     'nuxt-simple-sitemap',
+    'nuxt-icons',
     '@nuxtjs/device',
     '@nuxtjs/i18n',
     '@nuxtjs/color-mode',
     '@nuxt/image',
     '@nuxt-alt/auth',
-    '@nuxtjs/svg-sprite',
     '@pinia/nuxt',
     '@element-plus/nuxt',
   ],
@@ -80,9 +80,6 @@ export default async () => defineNuxtConfig({
   sitemap: {
     inferStaticPagesAsRoutes: false,
     sitemaps: await mySitemap(API_URL),
-  },
-  svgSprite: {
-    defaultSprite: 'svgIcon',
   },
   router: {
     options: {

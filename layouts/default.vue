@@ -1,7 +1,7 @@
 <template>
   <div class="TEMPLATE">
 
-    <Header style="flex: 0 0 auto" />
+    <Header style="flex: 0 0 auto" :color="scrollAcc.value?.Header" />
 
     <main>
       <slot />
@@ -24,12 +24,12 @@
 
   const route = useRoute()
 
-  const myHeader = ref({})
+  const scrollAcc = ref({})
 
   watch(() => route.path,
     () => {
-      if(process.client) {
-        myHeader.value = scrollRelative(
+      onNuxtReady(() => {
+        scrollAcc.value = scrollRelative(
           [
             {
               block: document.querySelector('.Header'),
@@ -38,7 +38,7 @@
           ],
         )
         $scrollAnimate()
-      }
+      })
     },
     { immediate: true }
   )

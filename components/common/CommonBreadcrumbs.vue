@@ -11,7 +11,8 @@
           :textContent="item.title"
           :to="useLocalePath()(`/${item.slug}`)"
         />
-        <SvgIcon
+        <NuxtIcon
+          filled
           class="stroke_black"
           name="arrowRight"
           width="6"

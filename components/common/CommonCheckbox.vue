@@ -22,8 +22,9 @@
           {'red': options?.error}
         ]"
       />
-      <SvgIcon
+      <NuxtIcon
         v-if="toggleStatus"
+        filled
         name="arrowRight"
         class="stroke_black transition-transform"
         width="6"
@@ -174,11 +175,11 @@
   .CommonCheckbox :deep() {
     .__head {
       &.active {
-        .svgIcon {
+        .nuxt-icon {
           transform: rotate(-90deg);
         }
       }
-      .svgIcon {
+      .nuxt-icon {
         transform: rotate(90deg);
       }
       label {

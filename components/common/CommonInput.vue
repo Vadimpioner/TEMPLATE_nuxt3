@@ -14,7 +14,8 @@
         placement="top-start"
         :content="options.tooltipContent"
         >
-        <SvgIcon
+        <NuxtIcon
+          filled
           name="help"
           class="c-p transition-color br-circle over-hidden opacity"
         />
@@ -81,8 +82,9 @@
       </span>
 
       <Transition name="fade">
-        <SvgIcon
+        <NuxtIcon
           v-if="inputValue && $attrs.onReset && options?.type != 'password'"
+          filled
           name="close"
           class="c-p opacity"
           @click.stop="
@@ -93,8 +95,9 @@
       </Transition>
 
       <Transition name="fade">
-        <SvgIcon
+        <NuxtIcon
           v-if="inputValue && options?.type == 'password'"
+          filled
           class="c-p opacity"
           :name="passwordShow ? 'visibilityOff' : 'visibility'"
           @click.stop="passwordShow = !passwordShow"
@@ -149,6 +152,9 @@
   watch(() => inputValue.value,
     (val) => !props.options?.updateAfterFocus && emits('updateValue', val)
   )
+  watch(() => props.options?.setValue,
+    (val) => val && (inputValue.value = val)
+  )
 
   $listen('reset', () => {
     onNuxtReady(() => {
@@ -161,7 +167,7 @@
 <style scoped lang="scss">
   .CommonInput {
     .__label {
-      .svgIcon  {
+      .nuxt-icon  {
         height: 14px;
         min-width: 14px;
         max-width: 14px;
@@ -210,7 +216,7 @@
         }
       }
       &-suffix {}
-      .svgIcon {
+      .nuxt-icon {
         @include value_adaptive((max-width, min-width, height), 24, 20);
       }
     }

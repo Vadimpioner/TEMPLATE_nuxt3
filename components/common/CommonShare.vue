@@ -9,7 +9,10 @@
           class="opacity"
           @click.prevent="shareDesktop(item.href)"
           >
-          <SvgIcon :name="item.icon" />
+          <NuxtIcon
+            filled
+            :name="item.icon"
+          />
         </button>
       </div>
     </template>
@@ -101,7 +104,7 @@
   .CommonShare {
     .__wrapper {
       button {
-        .svgIcon {
+        .nuxt-icon {
           @include value_adaptive((width, height), 24, 22);
         }
       }

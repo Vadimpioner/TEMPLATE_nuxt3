@@ -13,7 +13,8 @@
           class="__content d-flex fd-c pos-r bg_white transition-transform"
           :style="`width: ${options?.width || 1000}px`"
           >
-          <SvgIcon
+          <NuxtIcon
+            filled
             v-if="options?.closeIcon"
             class="fill_white pos-a z-2 opacity c-p"
             name="close"
@@ -86,7 +87,7 @@
       &-body {
         @include value_adaptive(padding-right, 8, 4);
       }
-      .svgIcon {
+      .nuxt-icon {
         right: -5px;
         @include value_adaptive(top, -40, -30);
         @include value_adaptive((height, width), 26, 22);

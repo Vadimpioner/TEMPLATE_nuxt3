@@ -10,7 +10,6 @@ export type CommonInputOptions = {
   autocomplete?: InputHTMLAttributes['autocomplete'],
   enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   setValue?: string,
-  updateValue?: string,
   tooltipContent?: string,
   toFixed?: number,
   maxlength?: InputHTMLAttributes['maxlength'],

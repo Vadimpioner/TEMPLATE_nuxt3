@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 
-  import { CommonAccordion } from '~/inject'
+  import { CommonAccordion } from '~/injects'
 
   type Props = {
     show?: boolean

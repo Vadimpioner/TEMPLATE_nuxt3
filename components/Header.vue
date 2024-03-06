@@ -26,6 +26,14 @@
         class="white"
         v-html="`${$i18n.locale} | ${$t('svyazatsya-s-nami')}`"
       />
+      <div
+        v-if="color"
+        class="br-circle"
+        :style="[
+          'width: 20px; height: 20px',
+          { 'background-color': color }
+        ]"
+      />
 
       <div style="margin-left: auto" class="d-flex c-gap-10">
         <NuxtLink
@@ -57,6 +65,11 @@
 </template>
 
 <script setup lang="ts">
+
+  type Props = {
+    color?: string
+  }
+  const props = defineProps<Props>()
 
   const { cartListSum } = storeToRefs(cartStore())
 

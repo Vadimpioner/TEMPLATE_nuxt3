@@ -23,7 +23,8 @@
               class="nowrap over-hidden transition-color"
               v-html="item.name"
             />
-            <SvgIcon
+            <NuxtIcon
+              filled
               class="opacity c-p"
               name="close"
               @click.stop="fileMultiple.splice(index, 1)"
@@ -43,7 +44,9 @@
       >
 
       <div class="_content d-flex aic c-gap-8 w100">
-        <SvgIcon
+        <NuxtIcon
+          v-if="!fileName"
+          filled
           name="upload"
           class="transition-color"
         />
@@ -51,8 +54,9 @@
           class="nowrap over-hidden transition-color"
           v-html="fileName || (options?.label ?? 'Upload file')"
         />
-        <SvgIcon
+        <NuxtIcon
           v-if="myFile"
+          filled
           class="opacity c-p"
           name="close"
           @click.stop="
@@ -164,12 +168,12 @@
         span {
           color: $red;
         }
-        .svgIcon {
+        :deep() .nuxt-icon svg {
           fill: $red;
         }
       }
     }
-    .svgIcon {
+    .nuxt-icon {
       @include value_adaptive((max-width, min-width, height), 24, 20);
     }
   }
