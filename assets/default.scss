@@ -1,0 +1,139 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  @extend .border-box, .scroll-smooth, .select-none, .black;
+
+  &:root {
+    @each $i, $val in $colors {
+      --#{"" + $i}: #{hex_convertation($val)};
+    }
+    @each $i, $val in $breakpoints {
+      --#{"" + $i}: #{$val};
+    }
+
+    &.dark-mode {
+      --black: #{hex_convertation($white)};
+      --white: #{hex_convertation($black)};
+      --green: #{hex_convertation($gray)};
+      --gray: #{hex_convertation($white)};
+      --red: #{hex_convertation($blue)};
+      --blue: #{hex_convertation($red)};
+      --yellow: #{hex_convertation($yellow)};
+    }
+  }
+
+  ::-webkit-scrollbar {
+    @extend .bg_white;
+    @include value_adaptive((width, height), 4, 2, $desktop, ($sm + 1));
+    @include value_adaptive(border-radius, 2, 1.5, $desktop, ($sm + 1));
+    @include value_change(display, null, none, $sm);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @extend .bg_blue;
+    @include value_adaptive(border-radius, 2, 1.5, $desktop, ($sm + 1));
+  }
+
+}
+a {
+  @extend .tdu-none, .blue;
+}
+
+img {
+  @extend .w100, .pointer-none, .obj-contain;
+}
+
+picture, img {
+  transition: filter .3s;
+}
+
+picture, svg {
+  @extend .d-flex, .select-none;
+}
+
+::selection {
+  @extend .green, .bg_white;
+}
+
+button,
+button:hover,
+li:hover,
+a:hover,
+li,
+a,
+*:hover,
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+  @extend .list-style-none, .p-0, .m-0;
+}
+
+a {
+  @extend .tdu-none;
+}
+
+p, ol, pre {
+  @extend .m-0;
+}
+
+label {
+  @extend .c-inherit;
+}
+
+input {
+  @extend .outline-none, .p-0, .border-unset;
+}
+
+textarea {
+  @extend .outline-none, .resize-none, .br-0;
+}
+
+body {
+  background-color: rgb(var(--gray));
+  overflow-x: hidden !important;
+  @extend .m-0, .transition-color;
+
+  &::-webkit-scrollbar {
+    @extend .bg_white, .br-0;
+    @include value_adaptive((width, height), 12, 4, $desktop, ($sm + 1));
+    @include value_change((width, height), null, 0, $sm);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @extend .bg_blue, .br-0;
+  }
+
+}
+
+.TEMPLATE {
+  @extend .d-flex, .fd-c, .h100, .mh100vh;
+  main {
+    @extend .d-flex, .fd-c, .flex-1;
+    @include value_adaptive(margin-top, 62, 62);
+  }
+}
+
+section {
+  @extend .w100;
+  @include value_adaptive(padding-bottom, 120, 48);
+  // &:last-of-type {
+  //   padding-bottom: 0 !important;
+  // }
+}
+
+button {
+  @extend .c-p, .p-0, .border-unset, .bg_transparent;
+  &:focus-visible {
+    @extend .outline-none;
+  }
+}
+
+:-webkit-any(article, aside, nav, section) h1,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @extend .m-0;
+}

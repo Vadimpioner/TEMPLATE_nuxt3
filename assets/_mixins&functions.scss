@@ -1,0 +1,40 @@
+@mixin value_adaptive(
+  $properties,
+  $starSize,
+  $minSize,
+  $width: $desktop,
+  $minWidthContainer: $dno,
+  $important: null,
+  $useMinWidth: null
+  ) {
+
+  $addSize: $starSize - $minSize;
+
+  @each $property in $properties {
+    $importantSuffix: if($important, !important, null);
+    $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer + px}) / (#{$width} - #{$minWidthContainer}))) $importantSuffix;
+
+    #{$property}: ($starSize + px) $importantSuffix;
+
+    @media(max-width: #{$width + px}) { #{$property}: $calc }
+    @if $useMinWidth {
+      @media(min-width: #{$width + 1 + px}) { #{$property}: $calc }
+    }
+  }
+
+}
+
+@mixin value_change($properties, $value, $newValue, $width) {
+  @each $property in $properties {
+
+    #{$property}: $value;
+    @media(max-width: #{$width + px}) {
+      #{$property}: $newValue;
+    }
+
+  }
+}
+
+@function hex_convertation($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

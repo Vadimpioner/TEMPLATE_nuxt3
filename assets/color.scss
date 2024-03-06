@@ -1,0 +1,26 @@
+@each $i, $val in $colors {
+  .#{"" + $i} {
+    color: $val;
+  }
+  .bg_#{"" + $i} {
+    background-color: $val;
+  }
+  .fill_#{"" + $i} {
+    fill: $val;
+  }
+  .stroke_#{"" + $i} {
+    stroke: $val;
+  }
+}
+.transparent {
+  color: transparent;
+}
+.bg_transparent {
+  background-color: transparent;
+}
+.fill_transparent {
+  fill: transparent;
+}
+.stroke_transparent {
+  stroke: transparent;
+}

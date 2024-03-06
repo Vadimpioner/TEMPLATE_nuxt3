@@ -1,0 +1,34 @@
+$pdMin: 16;
+$pdMax: 40;
+
+$desktop: 1400;
+$tablet: 1200;
+$mobile: 768;
+$sm: 499;
+$dno: 375;
+
+$black: #000000;
+$white: #ffffff;
+$green: #04b959;
+$gray: #DCDCDC;
+$red: #EF0000;
+$blue: #5D5FEF;
+$yellow: #FFE600;
+
+$breakpoints: (
+  desktop: $desktop,
+  tablet: $tablet,
+  mobile: $mobile,
+  sm: $sm,
+  dno: $dno,
+);
+
+$colors: (
+  black: $black,
+  white: $white,
+  green: $green,
+  gray: $gray,
+  red: $red,
+  blue: $blue,
+  yellow: $yellow,
+);

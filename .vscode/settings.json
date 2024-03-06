@@ -1,0 +1,15 @@
+{
+  "vetur.completion.scaffoldSnippetSources": {
+    "workspace": "💼",
+    "user": "🗒️",
+    "vetur": "✌"
+  },
+  "i18n-ally.localesPaths": [
+    "lang"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.keepFulfilled": true,
+  "i18n-ally.sourceLanguage": "ru-RU",
+  "typescript.tsdk": "node_modules/typescript/lib",
+}

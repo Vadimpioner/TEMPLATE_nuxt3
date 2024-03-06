@@ -1,0 +1,44 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  @extend .opacity-0;
+}
+
+.delete-move,
+.delete-enter-active,
+.delete-leave-active {
+  transition: opacity .7s, transform .7s cubic-bezier(.55, 0, .1, 1) !important;
+}
+.delete-enter-from,
+.delete-leave-to {
+  transform: scaleY(.01) translate(30px, 0);
+  @extend .opacity-0;
+}
+
+@keyframes loadingImage {
+  0%{
+    background-position: 100% 50%
+  }
+  100%{
+    background-position: 0 50%
+  }
+}
+
+@keyframes animateLine {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes btnError {
+  0% { transform: translateX(-3px); }
+  33% { transform: translateX(3px); }
+  66% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}

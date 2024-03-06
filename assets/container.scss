@@ -1,0 +1,8 @@
+@each $i, $val in $breakpoints {
+	.#{$i}Container {
+		max-width: $val+ px;
+		@extend .m-0-auto, .w100;
+		@include value_adaptive((padding-left, padding-right), $pdMax, $pdMin);
+	}
+}
+

@@ -1,0 +1,68 @@
+.fz-10 {
+  font-size: 10px;
+}
+
+.fz-12 {
+  font-size: 12px;
+}
+
+.fz-14 {
+  @include value_adaptive(font-size, 14, 12);
+  @include value_adaptive(line-height, 24, 22);
+}
+
+.fz-16 {
+  @include value_adaptive(font-size, 16, 14);
+}
+
+.fz-18 {
+  @include value_adaptive(font-size, 18, 14);
+}
+
+.fz-20 {
+  @include value_adaptive(font-size, 20, 14);
+}
+
+.fz-22 {
+  @include value_adaptive(font-size, 22, 16);
+}
+
+.fz-24 {
+  @include value_adaptive(font-size, 24, 18);
+}
+
+.fz-28 {
+  @include value_adaptive(font-size, 28, 18);
+}
+
+.fz-30 {
+  @include value_adaptive(font-size, 30, 18);
+}
+
+.fz-36 {
+  @include value_adaptive(font-size, 36, 18);
+}
+
+.fz-50 {
+  @include value_adaptive(font-size, 50, 20);
+}
+
+.fz-60 {
+  @include value_adaptive(font-size, 60, 24);
+}
+
+// @font-face {
+//   font-family: 'Sharp Grotesk SemiBold 25';
+//   font-display: auto;
+//   src:
+//     url('~/static/fonts/SharpGrotesk/SharpGrotesk-SemiBold25.woff') format('woff'),
+//     // url('~/static/fonts/SharpGrotesk/SharpGrotesk-SemiBold25.woff2') format('woff2'),
+// }
+
+// @font-face {
+//   font-family: 'Sharp Grotesk Medium 15';
+//   font-display: auto;
+//   src:
+//     url('~/static/fonts/SharpGrotesk/SharpGroteskMedium15.woff') format('woff'),
+//     // url('~/static/fonts/SharpGrotesk/SharpGroteskMedium15.woff2') format('woff2'),
+// }
