@@ -53,7 +53,7 @@
         <span class="white">| Sum {{ cartListSum }} |</span>
         <NuxtLink
           textContent="Cart"
-          :to="localePath('/cart')"
+          :to="localePath('/cart/')"
         />
         <NuxtLink
           textContent="Favorite"

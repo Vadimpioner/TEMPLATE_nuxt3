@@ -59,7 +59,7 @@
           <ElCheckbox
             v-for="(i, idx) in data?.slice(0, options?.trimTo || data.length)"
             :key="idx"
-            :label="i"
+            :value="i"
             :checked="options?.checkedList && options.checkedList.some(item => item.key == i.key)"
             :disabled="options?.disabledList && options.disabledList.some(item => item.key == i.key)"
             @change="emits('updateValue', checkboxGroup)"
@@ -81,7 +81,7 @@
               <ElCheckbox
                 v-for="(i, idx) in data?.slice(options.trimTo, data.length)"
                 :key="idx"
-                :label="i"
+                :value="i"
                 :checked="options?.checkedList && options.checkedList.some(item => item.key == i.key)"
                 :disabled="options?.disabledList && options.disabledList.some(item => item.key == i.key)"
                 @change="emits('updateValue', checkboxGroup)"

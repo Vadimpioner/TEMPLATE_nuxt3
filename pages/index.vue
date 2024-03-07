@@ -10,7 +10,7 @@
 
     <CommonAccordion accordionSimple>
 
-      <CommonAccordionItem show> <!-- CommonForm -->
+      <CommonAccordionItem> <!-- CommonForm -->
         <template #trigger>
           <span class="fz-20 fw600">CommonForm</span>
         </template>

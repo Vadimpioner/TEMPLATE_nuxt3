@@ -22,8 +22,8 @@ export function helpSplit<T>(array: T[], count: number) {
   }, [])
 }
 
-export function helpTel(phone: string) {
-  return `tel: ${phone.replace(/[\(\)-\s]/g,'')}`
+export function helpContact(data: string) {
+  return data.includes('@') ? `mailto: ${data}` : `tel: ${data.replace(/[\(\)-\s]/g,'')}`
 }
 
 export function helpDatePublication(date: string) {
