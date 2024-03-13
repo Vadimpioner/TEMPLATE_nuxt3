@@ -51,6 +51,25 @@
   }
 }
 
+@each $i, $val in $breakpoints {
+  $queries: (
+    ('fd-r', row),
+    ('fd-c', column),
+    ('fd-rr', row-reverse),
+    ('fd-cr', column-reverse)
+  );
+
+  @each $query in $queries {
+    $class: nth($query, 1);
+    $direction: nth($query, 2);
+
+    .#{$class}-#{$i} {
+      @media(max-width: #{$val}px) {
+        flex-direction: #{$direction} !important;
+      }
+    }
+  }
+}
 .d-block {
   display: block;
 }
