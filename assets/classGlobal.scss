@@ -21,8 +21,7 @@
 }
 @each $i, $val in $breakpoints {
   .#{$i}Padding {
-    @include value_change(padding-left, null, calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
-    @include value_change(padding-right, null, calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
+    @include value_change(padding, null, 0 calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
   }
 }
 
