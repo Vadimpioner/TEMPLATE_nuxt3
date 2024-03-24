@@ -2,7 +2,8 @@ export type CommonButtonOptions = {
   disabled?: boolean,
   loading?: boolean,
   error?: boolean,
-  fullSM?: boolean,
+  fullOnSM?: boolean,
+  fullWidth: boolean,
   skeleton?: boolean,
   pointerNone?: boolean,
 } & (

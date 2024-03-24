@@ -2,8 +2,8 @@
   $properties,
   $starSize,
   $minSize,
-  $width: $desktop,
-  $minWidthContainer: $dno,
+  $startBreakpoint: $desktop,
+  $endBreakpoint: $dno,
   $important: null,
   $useMinWidth: null
   ) {
@@ -12,23 +12,23 @@
 
   @each $property in $properties {
     $importantSuffix: if($important, !important, null);
-    $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer + px}) / (#{$width} - #{$minWidthContainer}))) $importantSuffix;
+    $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$endBreakpoint + px}) / (#{$startBreakpoint} - #{$endBreakpoint}))) $importantSuffix;
 
     #{$property}: ($starSize + px) $importantSuffix;
 
-    @media(max-width: #{$width + px}) { #{$property}: $calc }
+    @media(max-width: #{$startBreakpoint + px}) { #{$property}: $calc }
     @if $useMinWidth {
-      @media(min-width: #{$width + 1 + px}) { #{$property}: $calc }
+      @media(min-width: #{$startBreakpoint + 1 + px}) { #{$property}: $calc }
     }
   }
 
 }
 
-@mixin value_change($properties, $value, $newValue, $width) {
+@mixin value_change($properties, $value, $newValue, $breakpoint) {
   @each $property in $properties {
 
     #{$property}: $value;
-    @media(max-width: #{$width + px}) {
+    @media(max-width: #{$breakpoint + px}) {
       #{$property}: $newValue;
     }
 

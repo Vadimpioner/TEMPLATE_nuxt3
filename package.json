@@ -1,5 +1,10 @@
 {
   "private": true,
+  "author": {
+    "name": "Vadim Kanash",
+    "email": "pionerblr@gmail.com",
+    "url": "https://www.linkedin.com/in/vadim-kanash-838068230/"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

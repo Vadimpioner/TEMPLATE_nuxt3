@@ -10,7 +10,6 @@ export type CommonInputOptions = {
   autocomplete?: InputHTMLAttributes['autocomplete'],
   enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   setValue?: string,
-  tooltipContent?: string,
   toFixed?: number,
   maxlength?: InputHTMLAttributes['maxlength'],
   max?: InputHTMLAttributes['max'],
@@ -25,4 +24,13 @@ export type CommonInputOptions = {
   updateAfterFocus?: boolean,
   customRequired?: boolean,
   replaceValue?: RegExp,
-}
+} & (
+  {
+    tooltipContent: string,
+    label: string
+  }
+  |
+  {
+    tooltipContent?: never,
+  }
+)

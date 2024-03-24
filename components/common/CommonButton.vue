@@ -5,18 +5,19 @@
     :target="options?.target"
     :to="options?.to"
     :class="[
-      `CommonButton__${view} d-flex aic jcc wmc transition-all pos-r over-hidden`,
+      `CommonButton__${view} d-flex aic jcc mwmc transition-all pos-r over-hidden`,
       {'pointer-none': options?.pointerNone ?? options?.error},
       {'disabled pointer-none': options?.disabled},
       {'error pointer-none': options?.error},
-      {'fullSM': options?.fullSM},
+      {'fullOnSM': options?.fullOnSM},
       {'loadingFetch': options?.skeleton},
+      options?.fullWidth ? 'w100' : 'wmc'
     ]"
     @click="emits('clickBtn', $event)"
     >
-    <span class="fz-16 nowrap">
+    <div class="d-flex aic nowrap">
       <slot />
-    </span>
+    </div>
   </Component>
 </template>
 
@@ -61,7 +62,7 @@
         background-color: $red;
         animation: btnError .7s;
       }
-      &.fullSM {
+      &.fullOnSM {
         @media(max-width: #{$sm + px}) {
           width: 100%;
         }

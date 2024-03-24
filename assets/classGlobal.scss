@@ -1,12 +1,12 @@
 @each $i, $val in $breakpoints {
-  .#{$i}_none {
+  .#{$i}None {
     @media(max-width: #{$val + px}) {
       display: none;
     }
   }
 }
 @each $i, $val in $breakpoints {
-  .#{$i}_show {
+  .#{$i}Show {
     @extend .d-none;
     @media(max-width: #{$val + px}) {
       display: flex;
@@ -24,6 +24,13 @@
     @include value_change(padding, null, 0 calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
   }
 }
+
+.width_nowFull {
+  width: calc(100% + calc(#{$pdMin * 2 + px} + (#{$pdMax - $pdMin} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
+  transform: translateX(calc(-#{$pdMin + px} + -#{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
+  padding: 0 calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
+}
+
 
 .opacity {
   @extend .transition-opacity;
@@ -406,7 +413,7 @@
       @extend .transition-transform;
     }
     span {
-      @extend .mobile_none;
+      @extend .mobileNone;
     }
   }
   .btn-prev {

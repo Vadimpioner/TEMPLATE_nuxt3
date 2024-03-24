@@ -57,7 +57,7 @@
           </Portal>
           <div
             v-loading="loading.btnSend || loading.btnReset"
-            class="_top-left d-flex aic jcc flex-1 c-p loadingGreen mobile_show"
+            class="_top-left d-flex aic jcc flex-1 c-p loadingGreen mobileShow"
             @click="
               showMobileMenu = 'Фильтры',
               stopScrollBody()
@@ -67,7 +67,7 @@
           </div>
           <div
             v-loading="loading.sort"
-            class="_top-right d-flex aic jcc flex-1 c-p loadingGreen mobile_show"
+            class="_top-right d-flex aic jcc flex-1 c-p loadingGreen mobileShow"
             @click="
               showMobileMenu = 'Сортировка',
               stopScrollBody()

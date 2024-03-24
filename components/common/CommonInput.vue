@@ -1,9 +1,11 @@
 <template>
   <div class="CommonInput d-flex fd-c">
 
-    <div class="__label d-flex">
+    <div
+      v-if="options?.label"
+      class="__label d-flex"
+      >
       <label
-        v-if="options?.label"
         v-html="options?.label"
         :class="[
           {'customRequired': options?.customRequired}

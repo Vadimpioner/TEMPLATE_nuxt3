@@ -50,7 +50,7 @@
         :options="{
           disabled: disabledBtnReset,
         }"
-        :class="['loadingGreen mobile_none flex-1']"
+        :class="['loadingGreen mobileNone flex-1']"
         @click="sendMyParent(formInitial)"
         >
         Сбросить

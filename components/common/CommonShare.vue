@@ -20,7 +20,7 @@
     <CommonButton
       v-else
       :options="{
-        fullSM: true
+        fullOnSM: true
       }"
       @click="shareMobile()"
       >
