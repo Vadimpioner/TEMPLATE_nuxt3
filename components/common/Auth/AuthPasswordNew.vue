@@ -79,7 +79,7 @@
     if(!validation.isValid()) return
 
     await $fetch(`/custom/v1/user/new-password?token=${useRoute().query.token}`, {
-      baseURL: 'https://admin.ecoolska.com/wp-json' || useRuntimeConfig().public.apiUrl,
+      baseURL: process.env.fakeApiThree || useRuntimeConfig().public.apiUrl,
       method: 'POST',
       body: {
         password: myForm.password.val,

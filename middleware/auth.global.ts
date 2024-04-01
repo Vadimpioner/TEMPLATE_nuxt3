@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     try {
 
       await $fetch(`/custom/v1/user/confirm-register?token=${to.query.token}`, {
-        baseURL: 'https://admin.ecoolska.com/wp-json' || useRuntimeConfig().public.apiUrl,
+        baseURL: process.env.fakeApiThree || useRuntimeConfig().public.apiUrl,
         method: 'GET',
       })
 

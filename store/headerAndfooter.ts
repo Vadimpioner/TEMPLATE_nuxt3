@@ -9,8 +9,8 @@ export const headerAndfooterStore = defineStore('headerAndfooter', () => {
   const getHeader = async () => {
     try {
       const [myCategory, myHeader]  = await Promise.all([
-        $fetch(`https://admin.rialto.by/wp-json/custom/v1/category-three`),
-        $fetch(`https://admin.rialto.by/wp-json/custom/v1/header`),
+        $fetch(`${process.env.fakeApiTwo}/custom/v1/category-three`),
+        $fetch(`${process.env.fakeApiTwo}/custom/v1/header`),
       ])
       header.value = {category: myCategory, ...myHeader}
     } catch(error) {
@@ -19,7 +19,7 @@ export const headerAndfooterStore = defineStore('headerAndfooter', () => {
   }
 
   const getFooter = async () => {
-    await $fetch(`https://admin.rialto.by/wp-json/custom/v1/footer`)
+    await $fetch(`${process.env.fakeApiTwo}/custom/v1/footer`)
     .then((data) => footer.value = data)
     .catch((error) => console.error(`ERRORGetFooter ${error}`))
   }

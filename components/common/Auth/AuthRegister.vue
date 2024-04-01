@@ -72,7 +72,7 @@
     validation.loading = true
 
     await $fetch('/custom/v1/user/register', {
-      baseURL: 'https://admin.ecoolska.com/wp-json' || useRuntimeConfig().public.apiUrl,
+      baseURL: process.env.fakeApiThree || useRuntimeConfig().public.apiUrl,
       method: 'POST',
       body: {
         email: myForm.email.val,

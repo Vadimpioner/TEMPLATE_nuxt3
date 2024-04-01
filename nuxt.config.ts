@@ -106,15 +106,15 @@ export default async () => defineNuxtConfig({
         },
         endpoints: {
           login: {
-            url: `https://admin.ecoolska.com/wp-json/api-bearer-auth/v1/login`,
+            url: `${process.env.fakeApiThree}/api-bearer-auth/v1/login`,
             method: 'post',
           },
           refresh: {
-            url: `https://admin.ecoolska.com/api-bearer-auth/v1/tokens/refresh`,
+            url: `${process.env.fakeApiFour}/api-bearer-auth/v1/tokens/refresh`,
             method: 'post'
           },
           user: {
-            url: `https://admin.ecoolska.com/wp-json/custom/v1/user/user`,
+            url: `${process.env.fakeApiThree}/custom/v1/user/user`,
             method: 'get',
           },
           logout: false,

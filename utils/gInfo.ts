@@ -30,7 +30,7 @@ export async function generateI18n(apiUrl: string) {
     },
   }
 
-  await $fetch(`${'https://admin.bro-graphics.com/wp-json'}/pll/v1/languages`)
+  await $fetch(`${process.env.fakeApiOne}/pll/v1/languages`)
   .then((data: { slug: string; name: string }[]) => {
     if(Array.isArray(data)) i18nConfig.locales = data.map((i) => ({
       code: i.slug,
@@ -68,7 +68,7 @@ export async function mySitemap(apiUrl: string) {
 
   let sitemap: { [k: string]: { urls: string[] } } = {}
 
-  await $fetch(`https://admin.rialto.by/wp-json/custom/v1/sitemap`)
+  await $fetch(`${process.env.fakeApiTwo}/custom/v1/sitemap`)
   .then((data: Record<string, string[]>) => {
     sitemap = Object.fromEntries(Object.keys(data).map(key => [key, { urls: data[key] }]))
   })

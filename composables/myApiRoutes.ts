@@ -18,7 +18,7 @@ export function useMyApiRoutes() {
     try {
       return await useMyFetch(`/wp/v2/pages?slug=${namePage}`, {
         ...options,
-        baseURL: 'https://admin.rialto.by/wp-json'
+        baseURL: process.env.fakeApiTwo
       })
     } catch(error) {
       showError({ statusCode: 404 })
