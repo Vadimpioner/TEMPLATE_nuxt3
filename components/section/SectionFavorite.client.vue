@@ -20,7 +20,7 @@
           </h1>
           <div class="d-grid">
             <CommonCard
-              v-for="item in checkFavoriteList && !favoriteList?.length ? Array(8) : favoriteList"
+              v-for="item of checkFavoriteList && !favoriteList?.length ? Array(8) : favoriteList"
               :item="item"
             />
           </div>

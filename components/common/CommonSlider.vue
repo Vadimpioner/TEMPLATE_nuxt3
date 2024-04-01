@@ -72,7 +72,7 @@
         &-slide {
           @include value_adaptive(margin-right, 24, 16);
           &:last-child {
-            margin-right: 0;
+            margin-right: 0 !important;
           }
         }
         &-container-fade {

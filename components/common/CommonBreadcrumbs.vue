@@ -1,7 +1,7 @@
 <template>
   <nav class="CommonBreadcrumbs d-flex c-gap-8 desktopContainer over-hidden over-x-auto scrollbarNone">
 
-    <template v-for="item in [homePage, ...data].slice(0, -1)">
+    <template v-for="item of [homePage, ...data].slice(0, -1)">
       <div
         v-if="item.slug"
         class="__item d-flex c-gap-8 aic"

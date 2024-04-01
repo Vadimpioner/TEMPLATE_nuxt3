@@ -1,7 +1,7 @@
 <template>
   <div
     class="CommonMap"
-    ref="CommonMap"
+    ref="refCommonMap"
     >
     <GoogleMap
       :api-key="useRuntimeConfig().public.gmapKey"
@@ -10,7 +10,7 @@
       :zoom="4"
       >
       <Marker
-        v-for="(item, index) in data"
+        v-for="(item, index) of data"
         :options="{
           position: { lat: Number(item.lat), lng: Number(item.lng) },
           icon: `/image/common/marker${active == index || props.options?.showAll ? 'Active' : ''}.svg`,
@@ -46,7 +46,7 @@
   }
   const props = defineProps<Props>()
 
-  const mapStyle = ref([
+  const mapStyle = [
     {
       "featureType": "all",
       "elementType": "labels.text.fill",
@@ -244,11 +244,11 @@
             }
         ]
     }
-  ])
+  ]
 
   const active = ref<number | undefined>(undefined)
 
-  const CommonMap = ref()
+  const refCommonMap = ref<HTMLElement>()
 
   const tooltipShow = (hiddenAll?: boolean) => {
     if(props.options?.showAll) return
@@ -283,12 +283,13 @@
   }
 
   onMounted(() => {
-    if(props.options?.showAll) {
-      setTimeout(() => {
-        [...CommonMap.value.querySelectorAll('[role="button"]')].forEach((item) => item instanceof HTMLElement && item.click())
-      }, 500)
-    }
+    setTimeout(() => {
+      if(props.options?.showAll) {
+        refCommonMap.value?.querySelectorAll('[role="button"]').forEach((item) => item instanceof HTMLElement && item.click())
+      }
+    }, 500)
   })
+
 </script>
 
 <style scoped lang="scss">
@@ -297,6 +298,11 @@
       height: 500px;
       .gm-style-cc, .gmnoprint, .gm-fullscreen-control, img[alt=Google] {
         display: none;
+      }
+      .gm-style {
+        :nth-child(n) {
+          border: unset !important;
+        }
       }
       .gm-style-iw.gm-style-iw-c {
         padding: 8px 16px !important;

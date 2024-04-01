@@ -57,7 +57,7 @@
           :disabled="options?.disabled"
           >
           <ElCheckbox
-            v-for="(i, idx) in data?.slice(0, options?.trimTo || data.length)"
+            v-for="(i, idx) of data?.slice(0, options?.trimTo || data.length)"
             :key="idx"
             :value="i"
             :checked="options?.checkedList && options.checkedList.some(item => item.key == i.key)"
@@ -79,7 +79,7 @@
               class="__content-mainFull d-flex fd-c"
               >
               <ElCheckbox
-                v-for="(i, idx) in data?.slice(options.trimTo, data.length)"
+                v-for="(i, idx) of data?.slice(options.trimTo, data.length)"
                 :key="idx"
                 :value="i"
                 :checked="options?.checkedList && options.checkedList.some(item => item.key == i.key)"

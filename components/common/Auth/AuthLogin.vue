@@ -29,7 +29,6 @@
         error: validation.FORM.password.error,
         errorMessage: validation.FORM.password.errorMessage,
         type: 'password',
-        tooltipContent: validation.FORM.password.DEFAULT.tooltipContent
       }"
       @updateValue="(val) => myForm.password.val = val"
     />

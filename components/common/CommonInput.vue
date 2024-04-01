@@ -6,7 +6,7 @@
       class="__label d-flex"
       >
       <label
-        v-html="options?.label"
+        v-html="options.label"
         :class="[
           {'customRequired': options?.customRequired}
         ]"

@@ -19,7 +19,7 @@
           </h1>
           <div class="d-grid">
             <CommonCard
-              v-for="item in checkCartList && !cartList?.length ? Array(8) : cartList"
+              v-for="item of checkCartList && !cartList?.length ? Array(8) : cartList"
               :item="item"
             />
           </div>

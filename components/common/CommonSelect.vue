@@ -50,7 +50,7 @@
           </template>
 
           <ElOption
-            v-for="item in data"
+            v-for="item of data"
             :label="item.val"
             :value="item"
             :disabled="options?.disabledList && options.disabledList.some(i => i.key == item.key)"

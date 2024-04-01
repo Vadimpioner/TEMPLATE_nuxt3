@@ -14,7 +14,7 @@
         class="__multiple d-flex gap-15 over-hidden over-x-auto pb-3"
         >
         <li
-          v-for="(item, index) in fileMultiple"
+          v-for="(item, index) of fileMultiple"
           class="__item d-flex aic wmc"
           :key="index"
           >

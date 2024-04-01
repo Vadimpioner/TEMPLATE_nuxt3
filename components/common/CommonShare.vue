@@ -5,7 +5,7 @@
       <span v-html="'Поделиться в соцсетях:'" />
       <div class="__wrapper d-flex c-gap-8">
         <button
-          v-for="item in socialList"
+          v-for="item of socialList"
           class="opacity"
           @click.prevent="shareDesktop(item.href)"
           >

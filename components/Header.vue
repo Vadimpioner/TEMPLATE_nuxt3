@@ -11,7 +11,7 @@
       />
       <div class="d-flex c-gap-15">
         <button
-          v-for="(item, index) in locales"
+          v-for="(item, index) of locales"
           class="white"
           :key="index"
           @click="

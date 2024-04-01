@@ -78,7 +78,7 @@
         </div>
         <div class="_body d-grid">
           <CommonCard
-            v-for="item in loading.all ? Array(8) : CARDS"
+            v-for="item of loading.all ? Array(8) : CARDS"
             :item="item"
           />
         </div>
@@ -103,7 +103,7 @@
           >
           <template #default>
             <a
-              v-for="(i, idx) in 200"
+              v-for="(i, idx) of 200"
               v-html="`Page ${idx + 1}`"
               :href="`${useRuntimeConfig().public.baseLocaleUrl}${$route.path}?page=${idx + 1}`"
               :key="idx"

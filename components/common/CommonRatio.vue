@@ -13,7 +13,7 @@
 
     <div class="__list d-flex flex-wrap">
       <div
-        v-for="item in data"
+        v-for="item of data"
         :class="[
           `__item d-flex aic jcc pos-r c-p transition-color ${view}`,
           {'active': active?.key == item.key},
@@ -35,7 +35,7 @@
         :class="'__childList d-flex fd-c'"
         >
         <div
-          v-for="item in active?.list"
+          v-for="item of active?.list"
           :class="[
             `__item d-flex aic jcc pos-r c-p transition-color wmc ${view}`,
             {'active': activeChild?.key == item.key},

@@ -285,7 +285,7 @@
                 >
                 <SwiperSlide
                   style="height: 400px"
-                  v-for="(slide, index) in 10"
+                  v-for="(slide, index) of 10"
                   :key="slide"
                   >
                   <div class="swiper-zoom-container">
@@ -317,7 +317,7 @@
                 }"
                 >
                 <SwiperSlide
-                  v-for="(slide, index) in 6"
+                  v-for="(slide, index) of 6"
                   :key="slide"
                   style="height: 400px; width: 300px"
                   >

@@ -12,7 +12,7 @@
       <!-- <pre class="flex-1"><ClientOnly>loadingBtn - {{ loadingBtn }}</ClientOnly></pre> -->
     </div>
     <Component
-      v-for="(item, index) in data"
+      v-for="(item, index) of data"
       :is="item.componentName"
       :data="item.data"
       :key="`${index}${skeleton}`"

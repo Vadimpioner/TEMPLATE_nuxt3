@@ -27,7 +27,7 @@ export type CommonInputOptions = {
 } & (
   {
     tooltipContent: string,
-    label: string
+    label: string | undefined
   }
   |
   {

@@ -1,6 +1,6 @@
 <template>
   <div class="CommonCrawLine d-flex fd-c w100">
-    <template v-for="(item, index) in data">
+    <template v-for="(item, index) of data">
       <div
         v-if="item.content.length"
         :class="[
@@ -15,14 +15,14 @@
         :key="`${readyAnimation}`"
         >
         <div
-          v-for="repeat in 3"
+          v-for="repeat of 3"
           class="__line-item d-flex nowrap wmc"
           :ref="(el) => setRef(`line_${index}`, el as HTMLElement)"
           :key="repeat"
           >
           <div
             class="_content d-flex fd-r"
-            v-for="(i, idx) in item.content"
+            v-for="(i, idx) of item.content"
             :key="idx"
             >
             <div

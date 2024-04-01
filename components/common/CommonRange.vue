@@ -27,7 +27,7 @@
         class="__content d-flex fd-c r-gap-15"
         >
         <div
-          v-for="item in data"
+          v-for="item of data"
           class="__content-item d-flex fd-c"
           >
 

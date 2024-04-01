@@ -15,7 +15,7 @@
     }"
   />
   <section
-    v-for="(item, index) in section"
+    v-for="(item, index) of section"
     :style="[
       'height: 100vh',
       {'background-color': item}
