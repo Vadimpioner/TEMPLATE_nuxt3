@@ -135,7 +135,7 @@ export default async () => defineNuxtConfig({
     },
   },
   imports: {
-    dirs: ['types/*.ts', 'store/*.ts'],
+    dirs: ['types/**/*.ts', 'store/*.ts'],
     global: true,
   },
   devtools: {

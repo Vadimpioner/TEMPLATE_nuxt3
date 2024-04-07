@@ -1,6 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .3s;
+  transition: opacity $minTime;
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -10,7 +10,7 @@
 .delete-move,
 .delete-enter-active,
 .delete-leave-active {
-  transition: opacity .7s, transform .7s cubic-bezier(.55, 0, .1, 1) !important;
+  transition: opacity $maxTime, transform $maxTime cubic-bezier(.55, 0, .1, 1) !important;
 }
 .delete-enter-from,
 .delete-leave-to {

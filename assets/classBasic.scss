@@ -251,7 +251,12 @@
 .m-unset {
   margin: unset;
 }
-
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
 .m-auto {
   margin: auto;
 }
@@ -383,22 +388,22 @@
 }
 
 .transition-color {
-  transition: color .3s, background-color .3s, border-color .3s, fill .3s, stroke .3s;
+  transition: color $minTime, background-color $minTime, border-color $minTime, fill $minTime, stroke $minTime;
 }
 .transition-all {
-  transition: all .3s;
+  transition: all $minTime;
 }
 .transition-opacity {
-  transition: opacity .3s;
+  transition: opacity $minTime;
 }
 .transition-shadow {
-  transition: shadow .3s;
+  transition: shadow $minTime;
 }
 .transition-transform {
-  transition: transform .3s;
+  transition: transform $minTime;
 }
 .transition-border {
-  transition: border-color .3s;
+  transition: border-color $minTime;
 }
 .over-hidden {
   overflow: hidden;

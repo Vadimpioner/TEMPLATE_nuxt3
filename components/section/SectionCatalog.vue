@@ -37,10 +37,10 @@
       <div class="__wrapper-right d-flex fd-c jcsb w100">
         <div class="_top d-flex aic jcsb">
           <Portal
-            to="__commonSelect"
+            to="__UISelect"
             :disabled="!statusBreakpoint.nowMOBILE"
             >
-            <CommonSelect
+            <UISelect
               v-loading="loading.sort"
               :data="data.sort"
               :options="{
@@ -48,7 +48,7 @@
               }"
               :skeleton="loading.all"
               :class="['loadingGreen']"
-              @updateValue="(val: CommonSelectData) => {
+              @updateValue="(val: UISelectData) => {
                 sort = val.key
                 loading.sort = true
                 showMobileMenu = ''
@@ -148,7 +148,7 @@
           />
           <PortalTarget
             v-if="showMobileMenu == 'Сортировка'"
-            name="__commonSelect"
+            name="__UISelect"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@
   type Props = {
     data: {
       aside: AsideFiltersData[],
-      sort: CommonSelectData[]
+      sort: UISelectData[]
     }
   }
   const props = defineProps<Props>()
@@ -231,15 +231,15 @@
         if(item.key) acc.params[item.key].push(...item.checkedList?.map(obj => obj.key))
       } else if(item.elName && item.checked && item.key) {
         acc[item.key] = item.checked
-      } else if(['CommonRange'].includes(item.componentName)) {
+      } else if(['UIRange'].includes(item.componentName)) {
         if(item.key && Array.isArray(item.data)) {
-          acc[item.key] = (item.data as CommonRangeData[]).reduce((accumulate, itm) => {
+          acc[item.key] = (item.data as UIRangeData[]).reduce((accumulate, itm) => {
             accumulate[itm.key] = [Number(itm.min), Number(itm.max)]
             return accumulate
           }, {} as Record<string, number[]>)
         }
         if(!item.hasOwnProperty('key') && Array.isArray(item.data)) {
-          (item.data as CommonRangeData[]).forEach((i) => {
+          (item.data as UIRangeData[]).forEach((i) => {
             if(i.key) acc[i.key] = [Number(i.min), Number(i.max)]
           })
         }
@@ -307,7 +307,7 @@
       &-left {}
       &-right {
         @include value_adaptive(row-gap, 64, 32);
-        .CommonSelect {
+        .UISelect {
           &.loadingFetch {
             @include value_change(display, null, none !important, $mobile)
           }
@@ -326,7 +326,7 @@
         }
       }
       &-mobile {
-        transition: left .3s;
+        transition: left $minTime;
         left: -100%;
         &.active {
           left: 0;

@@ -2,7 +2,7 @@
 	.#{$i}Container {
 		max-width: $val+ px;
 		@extend .m-0-auto, .w100;
-		@include value_adaptive((padding-left, padding-right), $pdMax, $pdMin);
+		@include value_adaptive((padding-left, padding-right), $maxSize, $minSize);
 	}
 }
 

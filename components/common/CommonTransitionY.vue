@@ -71,7 +71,7 @@
   .transitionY-leave-active {
     will-change: height, opacity, margin-top;
     transition-property: opacity, height, margin-top !important;
-    transition-duration: .2s;
+    transition-duration: $minTime;
     overflow: hidden;
   }
 

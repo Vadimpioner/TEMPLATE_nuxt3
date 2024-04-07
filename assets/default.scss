@@ -43,7 +43,7 @@ img {
 }
 
 picture, img {
-  transition: filter .3s;
+  transition: filter $minTime;
 }
 
 picture, svg {

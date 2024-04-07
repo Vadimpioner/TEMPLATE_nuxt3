@@ -15,20 +15,20 @@
 }
 @each $i, $val in $breakpoints {
   .width_#{$i}Full {
-    @include value_change(width, null, calc(100% + calc(#{$pdMin * 2 + px} + (#{$pdMax - $pdMin} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
-    @include value_change(transform, null, translateX(calc(-#{$pdMin + px} + -#{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
+    @include value_change(width, null, calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
+    @include value_change(transform, null, translateX(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
   }
 }
 @each $i, $val in $breakpoints {
   .#{$i}Padding {
-    @include value_change(padding, null, 0 calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
+    @include value_change(padding, null, 0 calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
   }
 }
 
 .width_nowFull {
-  width: calc(100% + calc(#{$pdMin * 2 + px} + (#{$pdMax - $pdMin} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
-  transform: translateX(calc(-#{$pdMin + px} + -#{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
-  padding: 0 calc(#{$pdMin + px} + #{$pdMax - $pdMin} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
+  width: calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
+  transform: translateX(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
+  padding: 0 calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
 }
 
 
@@ -130,7 +130,7 @@
 
 .loadingImage {
   filter: blur(5px);
-  transition: filter .5s ease-out;
+  transition: filter $maxTime ease-out;
 }
 .loadingImageAlt { // стилизация alt, когда 404, 504
   img {
@@ -243,7 +243,7 @@
             width: 14px !important;
             height: 14px !important;
             transform: translateY(-50%) scale(0);
-            transition: transform .3s, opacity .3s;
+            transition: transform $minTime, opacity $minTime;
             @extend .fz-14, .pos-a, .centerY, .tac, .opacity-0;
             @include value_adaptive(left, 22, 17);
           }
@@ -505,13 +505,13 @@
     }
     &__close {
       @include value_adaptive(top, 40, 24, $desktop, $dno, !important);
-      @include value_adaptive(right, $pdMax, $pdMin, $desktop, $dno, !important);
+      @include value_adaptive(right, $maxSize, $minSize, $desktop, $dno, !important);
     }
     &__prev {
-      @include value_adaptive(left, $pdMax, $pdMin, $desktop, $dno, !important);
+      @include value_adaptive(left, $maxSize, $minSize, $desktop, $dno, !important);
     }
     &__next {
-      @include value_adaptive(right, $pdMax, $pdMin, $desktop, $dno, !important);
+      @include value_adaptive(right, $maxSize, $minSize, $desktop, $dno, !important);
     }
     &__prev, &__next, &__close {
       border: 1px solid $black;

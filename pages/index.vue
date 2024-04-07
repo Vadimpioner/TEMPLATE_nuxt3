@@ -8,14 +8,14 @@
       :href="useLocalePath()('/catalog')"
     />
 
-    <CommonAccordion accordionSimple>
+    <UIAccordion accordionSimple>
 
-      <CommonAccordionItem> <!-- CommonForm -->
+      <UIAccordionItem> <!-- FormMain -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonForm</span>
+          <span class="fz-20 fw600">FormMain</span>
         </template>
         <template #content>
-          <CommonForm
+          <FormMain
             :data="{
               checkboxData: checkbox.data,
               selectData: select.data,
@@ -28,19 +28,19 @@
             }"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonCounter -->
+      <UIAccordionItem> <!-- UICounter -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">CommonCounter</span>
-          <CommonButton
+          <span class="fz-20 fw600">UICounter</span>
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="counter.toggle = !counter.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
           <pre v-if="counter.toggle">
@@ -48,7 +48,7 @@
             withSelect - {{ counter.withSelect }}
           </pre>
           <div class="d-flex fd-c r-gap-15">
-            <CommonCounter
+            <UICounter
               :data="counter.dataSimple"
               :options="{
                 max: 20,
@@ -59,7 +59,7 @@
               @updateValue="(val) => counter.simple = val.count"
             />
 
-            <CommonCounter
+            <UICounter
               view="withSelect"
               :data="counter.dataPro"
               :options="{
@@ -73,14 +73,14 @@
             />
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonShare -->
+      <UIAccordionItem> <!-- UIShare -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonShare</span>
+          <span class="fz-20 fw600">UIShare</span>
         </template>
         <template #content>
-          <CommonShare
+          <UIShare
             :param="{
               image: 'https://loremflickr.com/1200/1301',
               title: 'title',
@@ -88,95 +88,95 @@
             }"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonRatio -->
+      <UIAccordionItem> <!-- UIRadio -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">CommonRatio</span>
-          <CommonButton
+          <span class="fz-20 fw600">UIRadio</span>
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
-            @clickBtn.stop="commonRatio.toggle = !commonRatio.toggle"
+            @clickBtn.stop="radio.toggle = !radio.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
-            <pre v-if="commonRatio.toggle">
-              tab - {{ commonRatio.tab }}
-              circle - {{ commonRatio.circle }}
-              group - {{ commonRatio.group }}
+            <pre v-if="radio.toggle">
+              tab - {{ radio.tab }}
+              circle - {{ radio.circle }}
+              group - {{ radio.group }}
             </pre>
-            <CommonRatio
-              :data="commonRatio.data"
+            <UIRadio
+              :data="radio.data"
               :options="{
                 label: 'Табы',
                 error: false,
-                disabledList: commonRatio.disabledList,
-                checked: commonRatio.checked,
+                disabledList: radio.disabledList,
+                checked: radio.checked,
                 noToggle: true
               }"
-              @updateValue="(val) => commonRatio.tab = val"
+              @updateValue="(val) => radio.tab = val"
             />
-            <CommonRatio
+            <UIRadio
               view="circle"
-              :data="commonRatio.data"
+              :data="radio.data"
               :options="{
                 label: 'Цвета',
               }"
-              @updateValue="(val) => commonRatio.circle = val"
+              @updateValue="(val) => radio.circle = val"
             />
-            <CommonRatio
+            <UIRadio
               view="group"
-              :data="commonRatio.data"
+              :data="radio.data"
               :options="{
                 label: 'Груповые',
-                disabledList: commonRatio.disabledList,
-                checked: commonRatio.checked,
-                checkedChild: commonRatio.checkedChildList,
-                disabledChildList: commonRatio.disabledChildList,
+                disabledList: radio.disabledList,
+                checked: radio.checked,
+                checkedChild: radio.checkedChildList,
+                disabledChildList: radio.disabledChildList,
               }"
-              @updateValue="(val) => commonRatio.group = val"
+              @updateValue="(val) => radio.group = val"
             />
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonRange -->
+      <UIAccordionItem> <!-- UIRange -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">CommonRange</span>
-          <CommonButton
+          <span class="fz-20 fw600">UIRange</span>
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
-            @clickBtn.stop="commonRange.toggle = !commonRange.toggle"
+            @clickBtn.stop="range.toggle = !range.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
-          <pre v-if="commonRange.toggle">
-            result - {{ commonRange.result }}
+          <pre v-if="range.toggle">
+            result - {{ range.result }}
           </pre>
-          <CommonRange
-            :data="commonRange.data"
+          <UIRange
+            :data="range.data"
             :options="{
               label: 'ЗАГОЛОВОК'
             }"
-            @updateValue="(val) => commonRange.result = val"
+            @updateValue="(val) => range.result = val"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- Other -->
+      <UIAccordionItem> <!-- Other -->
         <template #trigger>
           <span class="fz-20 fw600">Other</span>
         </template>
         <template #content>
           <div class="d-flex flex-wrap gap-15">
-            <CommonButton
+            <UIButton
               @click="
                 ElMessageBox.confirm(`Вы действительно хотите удалить?`, {
                   confirmButtonText: 'Да',
@@ -187,8 +187,8 @@
               "
               >
               confirm
-            </CommonButton>
-            <CommonButton
+            </UIButton>
+            <UIButton
               @click="ElMessage({
                 showClose: true,
                 message: 'Congrats, this is a success message. wefwe wefwefe',
@@ -196,8 +196,8 @@
               "
               >
               message
-            </CommonButton>
-            <CommonButton
+            </UIButton>
+            <UIButton
               @click="ElNotification({
                 title: 'Prompt',
                 message: '<strong>This is <i>HTML</i> string</strong>',
@@ -206,67 +206,67 @@
               })"
               >
               notification
-            </CommonButton>
+            </UIButton>
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- Theme -->
+      <UIAccordionItem> <!-- Theme -->
         <template #trigger>
           <span class="fz-20 fw600">Theme</span>
         </template>
         <template #content>
-          <CommonTheme />
+          <UITheme />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonMap -->
+      <UIAccordionItem> <!-- UIMap -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonMap</span>
+          <span class="fz-20 fw600">UIMap</span>
         </template>
         <template #content>
-          <CommonMap
+          <UIMap
             :data="map"
             :options="{
               showAll: false
             }"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonBreadcrumbs -->
+      <UIAccordionItem> <!-- UIBreadcrumbs -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonBreadcrumbs</span>
+          <span class="fz-20 fw600">UIBreadcrumbs</span>
         </template>
         <template #content>
-          <CommonBreadcrumbs :data="breadcrumbsList" />
+          <UIBreadcrumbs :data="breadcrumbsList" />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonShowMore -->
+      <UIAccordionItem> <!-- UIShowMore -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonShowMore</span>
+          <span class="fz-20 fw600">UIShowMore</span>
         </template>
         <template #content>
-          <CommonShowMore
+          <UIShowMore
             :data="{
               shortText: showMore.shortText,
               fullText: showMore.fullText
             }"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonSlider -->
+      <UIAccordionItem> <!-- UISlider -->
         <template #trigger>
-          <span class="fz-20 fw600">CommonSlider</span>
+          <span class="fz-20 fw600">UISlider</span>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
 
             <div class="d-flex fd-c">
-              <h2>CommonSliderOne</h2>
-              <CommonSlider
+              <h2>UISliderOne</h2>
+              <UISlider
                 :options="{
                   slidesPerView: 'auto',
                   autoplay: false,
@@ -298,12 +298,12 @@
                     />
                   </div>
                 </SwiperSlide>
-              </CommonSlider>
+              </UISlider>
             </div>
 
             <div class="d-flex fd-c">
-              <h2>CommonSliderTwo</h2>
-              <CommonSlider
+              <h2>UISliderTwo</h2>
+              <UISlider
                 view="two"
                 :options="{
                   slidesPerView: 'auto',
@@ -327,77 +327,77 @@
                     :imgAttrs="{class: 'obj-cover'}"
                   />
                 </SwiperSlide>
-              </CommonSlider>
+              </UISlider>
             </div>
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonButton -->
+      <UIAccordionItem> <!-- UIButton -->
         <template #trigger>
           <span class="fz-20 fw600">Buttons</span>
         </template>
         <template #content>
           <div class="d-flex flex-wrap gap-20">
 
-            <CommonButton>view One</CommonButton>
+            <UIButton>view One</UIButton>
 
-            <CommonButton view="two">view Two</CommonButton>
+            <UIButton view="two">view Two</UIButton>
 
-            <CommonButton
+            <UIButton
               :options="{
                 disabled: true,
               }"
               >
               disabled
-            </CommonButton>
+            </UIButton>
 
-            <CommonButton
+            <UIButton
               :options="{
                 error: btnError,
               }"
               @clickBtn="errorButton()"
               >
               error
-            </CommonButton>
+            </UIButton>
 
-            <CommonButton
+            <UIButton
               :options="{
                 loading: true,
               }"
               >
               loading
-            </CommonButton>
+            </UIButton>
 
-            <CommonButton
+            <UIButton
               view="two"
               :options="{
                 skeleton: true,
               }"
               >
               skeleton
-            </CommonButton>
+            </UIButton>
 
-            <CommonButton
+            <UIButton
               :options="{
                 to: 'https://vuejs.org/guide/typescript/composition-api.html',
                 target: '_blank'
               }"
               >
               link
-            </CommonButton>
+            </UIButton>
 
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonModal -->
+      <UIAccordionItem> <!-- UIModal -->
         <template #trigger>
           <span class="fz-20 fw600">Modal</span>
         </template>
         <template #content>
-          <CommonButton @clickBtn="showModal = true">showModal</CommonButton>
-          <CommonModal
+          <UIButton @clickBtn="showModal = true">showModal</UIButton>
+          <UIModal
             :showModal="showModal"
             :options="{
               closeIcon: true,
@@ -411,17 +411,17 @@
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!</h1>
-          </CommonModal>
+          </UIModal>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonInput -->
+      <UIAccordionItem> <!-- UIInput -->
         <template #trigger>
           <span class="fz-20 fw600">Input</span>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'simple',
                 placeholder: 'placeholder',
@@ -431,15 +431,15 @@
               >
               <template #prefix>prefix</template>
               <template #suffix>prefix</template>
-            </CommonInput>
-            <CommonInput
+            </UIInput>
+            <UIInput
               :options="{
                 label: 'simple done',
                 done: true,
               }"
               @updateValue="(val) => form.name = val"
             />
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'simple error',
                 error: true,
@@ -447,21 +447,21 @@
               }"
               @updateValue="(val) => form.name = val"
             />
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'reset value',
               }"
               @updateValue="(val) => form.reset = val"
               @reset="() => form.reset = ''"
             />
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'password',
                 type: 'password',
               }"
               @updateValue="(val) => form.password = val"
             />
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'phone',
                 inputmode: 'tel', // numeric - с маской || tel - без маски
@@ -469,7 +469,7 @@
               }"
               @updateValue="(val) => form.phone = val"
             />
-            <CommonInput
+            <UIInput
               :options="{
                 label: 'disabled',
                 disabled: true,
@@ -478,14 +478,14 @@
             />
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonTextarea -->
+      <UIAccordionItem> <!-- UITextarea -->
         <template #trigger>
           <span class="fz-20 fw600">Textarea</span>
         </template>
         <template #content>
-          <CommonTextarea
+          <UITextarea
             :options="{
               label: 'textarea',
               placeholder: 'placeholder',
@@ -494,19 +494,19 @@
             @updateValue="(val) => textarea = val"
           />
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonUpload -->
+      <UIAccordionItem> <!-- UIUpload -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">CommonUpload</span>
-          <CommonButton
+          <span class="fz-20 fw600">UIUpload</span>
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="upload.toggle = !upload.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
           <pre v-if="upload.toggle">
@@ -516,7 +516,7 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <CommonUpload
+            <UIUpload
               :options="{
                 multiple: true,
                 label: 'multiple',
@@ -524,7 +524,7 @@
               }"
               @updateValue="(val: File[]) => upload.multiple = val"
             />
-            <CommonUpload
+            <UIUpload
               :options="{
                 multiple: true,
                 error: false,
@@ -534,7 +534,7 @@
               }"
               @updateValue="(val: File[]) => upload.images = val"
             />
-            <CommonUpload
+            <UIUpload
               :options="{
                 error: false,
                 label: 'basic'
@@ -543,19 +543,19 @@
             />
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonCheckbox -->
+      <UIAccordionItem> <!-- UICheckbox -->
         <template #trigger="{ visibleAI }">
           <span class="fz-20 fw600">Checkbox</span>
-          <CommonButton
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="checkbox.toggle = !checkbox.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
           <pre v-if="checkbox.toggle">
@@ -565,7 +565,7 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <CommonCheckbox
+            <UICheckbox
               :options="{
                 label: 'лейбл чекбокс',
                 elName: 'Обычный чекбокс',
@@ -574,7 +574,7 @@
               @updateValue="(val: boolean) => checkbox.basic = val"
             />
 
-            <CommonCheckbox
+            <UICheckbox
               :data="checkbox.data"
               :options="{
                 elName: 'Выделить все',
@@ -582,10 +582,10 @@
                 checkedList: checkbox.checkedList,
                 disabledList: checkbox.disabledList,
               }"
-              @updateValue="(val: CommonCheckboxData[]) => checkbox.multiple = val"
+              @updateValue="(val: UICheckboxData[]) => checkbox.multiple = val"
             />
 
-            <CommonCheckbox
+            <UICheckbox
               view="color"
               :data="checkbox.data"
               :options="{
@@ -597,19 +597,19 @@
           </div>
 
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-      <CommonAccordionItem> <!-- CommonSelect -->
+      <UIAccordionItem> <!-- UISelect -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">CommonSelect</span>
-          <CommonButton
+          <span class="fz-20 fw600">UISelect</span>
+          <UIButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="select.toggle = !select.toggle"
             >
             toggle data
-          </CommonButton>
+          </UIButton>
         </template>
         <template #content>
           <pre v-if="select.toggle">
@@ -619,42 +619,42 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <CommonSelect
+            <UISelect
               :data="select.data"
               :options="{
                 label: 'Basic',
                 placeholder: 'Выбрать...',
                 customRequired: true,
               }"
-              @updateValue="(val: CommonSelectData) => select.basic = val"
+              @updateValue="(val: UISelectData) => select.basic = val"
             />
-            <CommonSelect
+            <UISelect
               :data="select.data"
               :options="{
                 placeholder: 'Выбрать картинку...',
                 checkedList: select.checkedList[0],
                 disabledList: select.checkedList,
               }"
-              @updateValue="(val: CommonSelectData) => select.images = val"
+              @updateValue="(val: UISelectData) => select.images = val"
             />
-            <CommonSelect
+            <UISelect
               :data="select.data"
               :options="{
                 multiple: true,
                 checkedList: select.checkedList,
                 disabledList: select.disabledList
               }"
-              @updateValue="(val: CommonSelectData[]) => select.multiple = val"
+              @updateValue="(val: UISelectData[]) => select.multiple = val"
             />
           </div>
         </template>
-      </CommonAccordionItem>
+      </UIAccordionItem>
 
-    </CommonAccordion>
+    </UIAccordion>
   </div>
 
   <div class="over-x mt-30 mb-30">
-    <CommonCrawLine :data="crawLine" />
+    <UICrawLine :data="crawLine" />
   </div>
 
 </template>
@@ -664,8 +664,8 @@
   const { $throw } = useNuxtApp()
   const { width, height, scrollY, scrollToggle, statusBreakpoint } = useResponsive()
 
-  //---CommonRatio
-  const commonRatio = ref({
+  //---UIRadio
+  const radio = reactive({
     toggle: false,
 
     tab: {},
@@ -762,8 +762,8 @@
     ],
   })
 
-  //---CommonRange
-  const commonRange = ref({
+  //---UIRange
+  const range = reactive({
     toggle: false,
 
     result: {},
@@ -791,7 +791,7 @@
   })
 
   //---Map
-  const map = ref([
+  const map = [
     {
       "lat": "55.755864",
       "lng": "37.617698",
@@ -828,10 +828,10 @@
       "name": "Ташкент",
       "descr": "101.000"
     }
-  ])
+  ]
 
   //---BreadcrumbsList
-  const breadcrumbsList = reactive([
+  const breadcrumbsList = [
     {
       title: 'Catalog',
       slug: 'catalog'
@@ -839,13 +839,13 @@
     {
       title: 'IT',
     },
-  ])
+  ]
 
   //---ShowMore
-  const showMore = reactive({
+  const showMore = {
     shortText: '<p>p - shortTe ppp pp shortText shortText</p>',
     fullText: '<p>p - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum repellat fugit recusandae impedit minus deleniti, ipsa autem ipsam perspiciatis praesentium sed et libero. Odit consectetur optio fuga quibusdam exercitationem autem!</p><a href="/#">link</a><h1>h1</h1><h2>h2</h2><h3>h3</h3><h4>h4</h4><ul><li>shortText</li><li>shortText</li><li>shortText</li></ul><ol><li>shortText</li><li>shortText</li><li>shortText</li></ol><img src="https://loremflickr.com/200/300/car" alt="car" />',
-  })
+  }
 
   //---Buttons
   const btnError = ref(false)
@@ -866,7 +866,7 @@
   }
 
   //---Counter
-  const counter = ref({
+  const counter = reactive({
     toggle: false,
 
     simple: {},
@@ -923,7 +923,7 @@
     toggle: false,
 
     basic: false,
-    multiple: [] as CommonCheckboxData[],
+    multiple: [] as UICheckboxData[],
     color: [],
 
     data: [
@@ -982,9 +982,9 @@
   const select = reactive({
     toggle: false,
 
-    basic: {} as CommonSelectData,
-    images: {} as CommonSelectData,
-    multiple: [] as CommonSelectData[],
+    basic: {} as UISelectData,
+    images: {} as UISelectData,
+    multiple: [] as UISelectData[],
 
     data: [
       {
@@ -1040,7 +1040,7 @@
   })
 
   //---CrawLine
-  const crawLine = ref([
+  const crawLine = [
     {
       speed: 24,
       content: [
@@ -1128,12 +1128,12 @@
         },
       ]
     },
-  ])
+  ]
 
 </script>
 
 <style lang="scss" scoped>
-  :deep() .CommonAccordionItem {
+  :deep() .UIAccordionItem {
     .__trigger {
       display: flex;
       align-items: center;
