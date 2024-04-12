@@ -14,23 +14,45 @@
   }
 }
 @each $i, $val in $breakpoints {
-  .width_#{$i}Full {
+  .#{$i}WidthFull {
     @include value_change(width, null, calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
     @include value_change(transform, null, translateX(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
+  }
+  .#{$i}HeightFull {
+    @include value_change(height, null, calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
+    @include value_change(transform, null, translateY(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno}))), $val);
   }
 }
 @each $i, $val in $breakpoints {
   .#{$i}Padding {
+    @include value_change(padding, null, calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
+  }
+  .#{$i}PaddingX {
     @include value_change(padding, null, 0 calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno))), $val);
+  }
+  .#{$i}PaddingY {
+    @include value_change(padding, null, calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno))) 0, $val);
   }
 }
 
-.width_nowFull {
+.nowWidthFull {
   width: calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
   transform: translateX(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
-  padding: 0 calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
+}
+.nowHeightFull {
+  height: calc(100% + calc(#{$minSize * 2 + px} + (#{$maxSize - $minSize} * 2) * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
+  transform: translateY(calc(-#{$minSize + px} + -#{$maxSize - $minSize} * ((100vw - #{$dno + px}) / #{$desktop - $dno})));
 }
 
+.nowPadding {
+  padding: calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
+}
+.nowPaddingX {
+  padding: 0 calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno)));
+}
+.nowPaddingY {
+  padding: calc(#{$minSize + px} + #{$maxSize - $minSize} * ((100vw - #{$dno + px}) / ($desktop - $dno))) 0;
+}
 
 .opacity {
   @extend .transition-opacity;
@@ -554,6 +576,7 @@
   }
 }
 .nuxt-icon {
+  @extend .d-flex;
   svg {
     width: inherit !important;
     height: inherit !important;

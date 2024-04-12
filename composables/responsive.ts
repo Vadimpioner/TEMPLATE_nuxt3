@@ -5,6 +5,7 @@ export function useResponsive() {
   const width = ref(0)
   const height = ref(0)
   const scrollY = ref(0)
+  const clientReady = ref(false)
   const scrollToggle = ref(false)
 
   const statusBreakpoint = computed(() => {
@@ -29,6 +30,7 @@ export function useResponsive() {
   }
 
   onNuxtReady(() => {
+    clientReady.value = true
     updateScollY()
     window.addEventListener('scroll', updateScollY)
     window.addEventListener('resize', () => updateResponsive())
@@ -39,6 +41,7 @@ export function useResponsive() {
     width,
     height,
     scrollY,
+    clientReady,
     scrollToggle,
     statusBreakpoint,
   }

@@ -5,7 +5,7 @@
     :target="options?.target"
     :to="options?.to"
     :class="[
-      `UIButton__${view} d-flex aic jcc mwmc transition-all pos-r over-hidden`,
+      `UIButton__${view} d-flex aic jcc minwmc transition-all pos-r over-hidden`,
       {'pointer-none': options?.pointerNone ?? options?.error},
       {'disabled pointer-none': options?.disabled},
       {'error pointer-none': options?.error},

@@ -119,7 +119,7 @@
           {'active': showMobileMenu}
         ]"
         >
-        <div class="_top d-flex aic jcsb pos-sticky width_mobileFull mobilePadding">
+        <div class="_top d-flex aic jcsb pos-sticky mobileWidthFull mobilePadding">
           <span
             v-html="'Назад'"
             class="flex-1 tal c-p"
