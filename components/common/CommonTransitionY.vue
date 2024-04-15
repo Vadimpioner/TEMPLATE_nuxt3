@@ -1,6 +1,6 @@
 <template>
   <Transition
-    name="transitionY"
+    :name="props.name ?? 'transitionY'"
     @after-leave="(val) => afterLeave(val)"
     @enter="(val) => enter(val)"
     @leave="(val) => leave(val)"
@@ -11,22 +11,27 @@
 
 <script setup lang="ts">
 
+  type Props = {
+    name?: string,
+  }
+  const props = defineProps<Props>()
   const slots = defineSlots<{
     default: () => unknown
   }>()
 
   const afterLeave = (el: Element) => {
-    if(el instanceof HTMLElement) {
+    if(props.name) return
 
+    if(el instanceof HTMLElement) {
       el.style.removeProperty('height')
       el.style.removeProperty('margin-top')
-
     }
   }
 
   const enter = (el: Element) => {
-    if(el instanceof HTMLElement) {
+    if(props.name) return
 
+    if(el instanceof HTMLElement) {
       const { height, marginTop } = getComputedStyle(el)
 
       el.style.position = 'absolute'
@@ -45,13 +50,13 @@
         )
         el.style.marginTop = marginTop
       })
-
     }
   }
 
   const leave = (el: Element) => {
-    if(el instanceof HTMLElement) {
+    if(props.name) return
 
+    if(el instanceof HTMLElement) {
       const { height } = getComputedStyle(el)
 
       el.style.height = height
@@ -60,7 +65,6 @@
         el.style.height = '0'
         el.style.marginTop = '0'
       })
-
     }
   }
 

@@ -9,10 +9,15 @@ export default async () => defineNuxtConfig({
   site: {
     url: BASELOCALEURL,
   },
-  experimental: {
-    viewTransition: true
-  },
   app: {
+    pageTransition: {
+      name: 'fade',
+      mode: 'out-in',
+    },
+    layoutTransition: {
+      name: 'fade',
+      mode: 'out-in',
+    },
     head: {
       meta: [
         { charset: 'utf-8' },
