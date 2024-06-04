@@ -60,6 +60,7 @@
         :data-maska="options?.maska"
         :type="passwordShow ? 'text' : options?.type || 'text'"
         :autocomplete="options?.autocomplete || 'off'"
+        :autocapitalize="options?.autocapitalize"
         :required="options?.required"
         :maxlength="options?.maxlength"
         :inputmode="options?.inputmode"

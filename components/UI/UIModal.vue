@@ -7,7 +7,7 @@
           'UIModal d-flex jcc aic pos-fixed w100 h100 top-0 left-0 z-10',
           disabled ? 'pointer-none' : 'pointer-initial'
         ]"
-        @click.self="emits('closeModal')"
+        @mouseup.self="emits('closeModal')"
         >
         <div
           class="__content d-flex fd-c pos-r bg_white transition-transform"

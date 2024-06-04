@@ -6,6 +6,7 @@ export type UITextareaOptions = {
   errorMessage?: string,
   setValue?: string,
   maxlength?: TextareaHTMLAttributes['maxlength'],
+  autocapitalize?: 'off' | 'on' | 'words' | 'characters',
   error?: boolean,
   done?: boolean,
   required?: boolean,

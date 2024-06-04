@@ -19,6 +19,7 @@
       :required="options?.required"
       :maxlength="options?.maxlength"
       :placeholder="options?.customRequired && options?.placeholder ? `${options?.placeholder} *` : options?.placeholder"
+      :autocapitalize="options?.autocapitalize"
     />
 
     <CommonTransitionY>

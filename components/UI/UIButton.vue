@@ -6,7 +6,7 @@
     :to="options?.to"
     :class="[
       `UIButton__${view} d-flex aic jcc minwmc transition-all pos-r over-hidden`,
-      {'pointer-none': options?.pointerNone ?? options?.error},
+      {'pointer-none': options?.pointerNone},
       {'disabled pointer-none': options?.disabled},
       {'error pointer-none': options?.error},
       {'fullOnSM': options?.fullOnSM},

@@ -8,6 +8,7 @@ export type UIInputOptions = {
   type?: InputTypeHTMLAttribute,
   inputmode?: HTMLAttributes['inputmode'],
   autocomplete?: InputHTMLAttributes['autocomplete'],
+  autocapitalize?: 'off' | 'on' | 'words' | 'characters',
   enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   setValue?: string,
   toFixed?: number,
