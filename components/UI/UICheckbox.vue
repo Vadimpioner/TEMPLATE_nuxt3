@@ -2,6 +2,7 @@
   <div class="UICheckbox d-flex fd-c">
 
     <div
+      v-if="options?.label"
       :class="[
         '__head d-flex aic c-gap-10',
         {'c-p': toggleStatus},
@@ -10,7 +11,6 @@
       @click="toggleStatus ? visible = !visible : null"
       >
       <label
-        v-if="options?.label"
         v-html="options?.customRequired
           ?
           `${options.label} ${checkboxGroup.length && options?.selectedCounter ? `(${checkboxGroup.length})` : ''} <span class='red'>*</span>`
