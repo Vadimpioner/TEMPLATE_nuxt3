@@ -63,25 +63,19 @@
         animation: btnError $maxTime;
       }
       &.fullOnSM {
-        @media(max-width: #{$sm + px}) {
-          width: 100%;
-        }
+        @include value_change(width, 100%, $disableOn: $sm);
       }
     }
     &__one {
       background-color: $blue;
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          box-shadow: 0px 5px 20px rgba($blue, .6);
-        }
+      @include hover {
+        box-shadow: 0px 5px 20px rgba($blue, .6);
       }
     }
     &__two {
       background-color: $green;
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          box-shadow: 0px 5px 10px rgba($green, .4);
-        }
+      @include hover {
+        box-shadow: 0px 5px 10px rgba($green, .4);
       }
     }
   }

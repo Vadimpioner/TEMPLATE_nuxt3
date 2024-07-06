@@ -67,10 +67,8 @@
       border: 1px solid $gray;
       @include value_adaptive(height, 200, 180);
       @include value_adaptive(padding, 24, 16);
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          border-color: $green;
-        }
+      @include hover {
+        border-color: $green;
       }
       &:focus {
         border-color: $blue;

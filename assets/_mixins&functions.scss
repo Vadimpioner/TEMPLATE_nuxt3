@@ -4,34 +4,59 @@
   $minSize,
   $startBreakpoint: $desktop,
   $endBreakpoint: $dno,
+  $disableOn: null,
   $important: null,
-  $useMinWidth: null
+  $useStretchSize: null,
   ) {
 
   $addSize: $starSize - $minSize;
 
-  @each $property in $properties {
-    $importantSuffix: if($important, !important, null);
-    $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$endBreakpoint + px}) / (#{$startBreakpoint} - #{$endBreakpoint}))) $importantSuffix;
+  @media #{if($disableOn, "(min-width: #{$disableOn + px})", all)} {
 
-    #{$property}: ($starSize + px) $importantSuffix;
+    @each $property in $properties {
+      $importantSuffix: if($important, !important, null);
+      $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$endBreakpoint + px}) / (#{$startBreakpoint} - #{$endBreakpoint}))) $importantSuffix;
 
-    @media(max-width: #{$startBreakpoint + px}) { #{$property}: $calc }
-    @if $useMinWidth {
-      @media(min-width: #{$startBreakpoint + 1 + px}) { #{$property}: $calc }
+      #{$property}: ($starSize + px) $importantSuffix;
+
+      @media(max-width: #{$startBreakpoint + px}) { #{$property}: $calc }
+      @if $useStretchSize {
+        @media(min-width: #{$startBreakpoint + 1 + px}) { #{$property}: $calc }
+      }
     }
+
   }
 
 }
 
-@mixin value_change($properties, $value, $newValue, $breakpoint) {
-  @each $property in $properties {
+@mixin value_change(
+  $properties,
+  $value,
+  $newValue: null,
+  $breakpoint: null,
+  $disableOn: null
+  ) {
 
-    #{$property}: $value;
-    @media(max-width: #{$breakpoint + px}) {
-      #{$property}: $newValue;
+  @media #{if($disableOn, "(min-width: #{$disableOn + px})", all)} {
+
+    @each $property in $properties {
+
+      #{$property}: $value;
+      @media(max-width: #{$breakpoint + px}) {
+        #{$property}: $newValue;
+      }
+
     }
 
+  }
+
+}
+
+@mixin hover($breakpoint: $sm) {
+  @media((hover) and (min-width: #{$breakpoint + 1 + px})) {
+    &:hover {
+      @content;
+    }
   }
 }
 

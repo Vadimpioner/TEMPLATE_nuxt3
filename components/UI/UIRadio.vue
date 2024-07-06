@@ -110,10 +110,8 @@
     }
     .__item {
       border: 1px solid rgba($black, .3);
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          border-color: rgba($black, .5);
-        }
+      @include hover {
+        border-color: rgba($black, .5);
       }
       &.active {
         border-color: $black;

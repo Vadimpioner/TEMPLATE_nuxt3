@@ -181,10 +181,8 @@
       @include value_adaptive(height, 50, 42);
       @include value_adaptive(column-gap, 16, 8);
       @include value_adaptive((padding-right, padding-left), 24, 16);
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          border-color: $green;
-        }
+      @include hover {
+        border-color: $green;
       }
       &.prefix {
         @include value_adaptive(padding-left, 16, 8);

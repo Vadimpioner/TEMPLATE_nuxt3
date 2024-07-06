@@ -207,11 +207,9 @@
       height: initial;
       margin: 0;
       @include value_adaptive(column-gap, 8, 4);
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          .el-checkbox__inner {
-            border-color: $black;
-          }
+      @include hover {
+        .el-checkbox__inner {
+          border-color: $black;
         }
       }
       &.is-checked {
@@ -264,10 +262,8 @@
         min-width: 18px;
         max-width: 18px;
         height: 18px;
-        @media((hover) and (min-width: #{$sm + 1 + px})) {
-          &:hover {
-            border-color: $black;
-          }
+        @include hover {
+          border-color: $black;
         }
       }
     }

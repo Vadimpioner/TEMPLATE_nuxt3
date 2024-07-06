@@ -102,11 +102,9 @@
             margin-top: 0;
             transform: translateY(-50%);
             @include value_adaptive((height, width), 40, 34);
-            @media((hover) and (min-width: #{$sm + 1 + px})) {
-              &:hover {
-                background-color: $white;
-                border-color: transparent;
-              }
+            @include hover {
+              background-color: $white;
+              border-color: transparent;
             }
             &::after {
               font-family: unset;

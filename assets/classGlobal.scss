@@ -57,10 +57,8 @@
 .opacity {
   @extend .transition-opacity;
 
-  @media((hover) and (min-width: #{$sm + 1 + px})) {
-    &:hover {
-      opacity: .7
-    }
+  @include hover {
+    opacity: .7
   }
 }
 
@@ -68,7 +66,6 @@
   &::-webkit-scrollbar {
     @include value_adaptive((width, height), 4, 2, $desktop, ($sm + 1));
     @include value_change((width, height), null, 2px, $sm);
-    @include value_change(display, null, initial, $sm);
   }
 }
 
@@ -116,20 +113,6 @@
   ul, ol {
     @extend .d-flex, .fd-c;
     @include value_adaptive(row-gap, 6, 4);
-  }
-  ol {
-    @include value_adaptive(padding-left, 17.16, 12.88); // размер ::marker
-  }
-  ul {
-    li {
-      @extend .pos-r;
-      @include value_adaptive(padding-left, 24, 18);
-      &::after {
-        @extend .pos-a, .content-empty, .centerY, .bg_red, .br-circle;
-        @include value_adaptive(left, 0, 2);
-        @include value_adaptive((width, height), 8, 6);
-      }
-    }
   }
   figure {
     width: initial !important
@@ -292,10 +275,8 @@
       }
     }
     &__item {
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          background-color: transparent;
-        }
+      @include hover {
+        background-color: transparent;
       }
     }
     .el-scrollbar {
@@ -314,10 +295,8 @@
             :nth-child(n) {
               @extend .black, .fz-14;
             }
-            @media((hover) and (min-width: #{$sm + 1 + px})) {
-              &:hover {
-                background-color: rgba($blue, .1) !important;
-              }
+            @include hover {
+              background-color: rgba($blue, .1) !important;
             }
             &.is-selected {
               font-weight: initial;
@@ -384,8 +363,7 @@
   }
 }
 .el-popup-parent--hidden {
-  @include value_adaptive(padding-right, 12, 4, $desktop, ($sm + 1), !important);
-  @include value_change(padding-right, null, 0 !important, $sm);
+  @include value_adaptive(padding-right, 12, 4, $desktop, ($sm + 1), $disableOn: $sm, $important: true);
 }
 .el-slider {
   &::before, &::after {
@@ -417,14 +395,12 @@
   }
   .btn-prev, .btn-next {
     @extend .h100, .pos-r, .br-0, .transition-opacity;
-    @media((hover) and (min-width: #{$sm + 1 + px})) {
-      &:hover {
-        &::before {
-          transform: translateX(-2px)
-        }
-        &::after {
-          transform: translateX(2px)
-        }
+    @include hover {
+      &::before {
+        transform: translateX(-2px)
+      }
+      &::after {
+        transform: translateX(2px)
       }
     }
     &[disabled] {
@@ -464,11 +440,9 @@
     @extend .d-flex, .h100, .aic;
     .more {
       @include value_change(display, null, none, $tablet);
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          svg path {
-            fill: $green;
-          }
+      @include hover {
+        svg path {
+          fill: $green;
         }
       }
       svg path {
@@ -478,15 +452,8 @@
     .number, .el-icon {
       border-right: 1px solid $gray;
       @extend .p-0, .h100, .d-flex, .aic, .jcc, .br-0, .transition-color;
-      @media((hover) and (min-width: #{$sm + 1 + px})) {
-        &:hover {
-          color: $green;
-        }
-      }
-      @media(max-width: #{$tablet + px}) {
-        &:hover {
-          color: initial;
-        }
+      @include hover {
+        color: $green;
       }
       &.is-active {
         text-shadow: 0 0 1px $green;
@@ -526,26 +493,24 @@
       }
     }
     &__close {
-      @include value_adaptive(top, 40, 24, $desktop, $dno, !important);
-      @include value_adaptive(right, $maxSize, $minSize, $desktop, $dno, !important);
+      @include value_adaptive(top, 40, 24, $important: true);
+      @include value_adaptive(right, $maxSize, $minSize, $important: true);
     }
     &__prev {
-      @include value_adaptive(left, $maxSize, $minSize, $desktop, $dno, !important);
+      @include value_adaptive(left, $maxSize, $minSize, $important: true);
     }
     &__next {
-      @include value_adaptive(right, $maxSize, $minSize, $desktop, $dno, !important);
+      @include value_adaptive(right, $maxSize, $minSize, $important: true);
     }
     &__prev, &__next, &__close {
       border: 1px solid $black;
-      @include value_adaptive((height, width), 40, 32, $desktop, $dno, !important);
+      @include value_adaptive((height, width), 40, 32, $important: true);
       @extend .transition-color, .br-circle;
-      @media(min-width: #{$tablet + px}) {
-        &:hover {
-          background-color: $white !important;
-        }
+      @include hover {
+        background-color: $white !important;
       }
       i {
-        @include value_adaptive(font-size, 18, 16, $desktop, $dno, !important);
+        @include value_adaptive(font-size, 18, 16, $important: true);
       }
     }
     &__canvas {
@@ -559,11 +524,9 @@
         svg path {
           @extend .transition-color;
         }
-        @media((hover) and (min-width: #{$sm + 1 + px})) {
-          &:hover {
-            svg path {
-              fill: $red;
-            }
+        @include hover {
+          svg path {
+            fill: $red;
           }
         }
       }

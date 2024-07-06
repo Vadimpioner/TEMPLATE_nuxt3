@@ -22,10 +22,12 @@
   }
 
   ::-webkit-scrollbar {
+    &:not(.scrollAlways) {
+      @include value_change(display, null, none, $sm);
+    }
     @extend .bg_white;
     @include value_adaptive((width, height), 4, 2, $desktop, ($sm + 1));
     @include value_adaptive(border-radius, 2, 1.5, $desktop, ($sm + 1));
-    @include value_change(display, null, none, $sm);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -66,7 +68,7 @@ a,
 }
 
 ul {
-  @extend .list-style-none, .p-0, .m-0;
+  @extend .list-style-inside, .p-0, .m-0;
 }
 
 a {
@@ -96,8 +98,7 @@ body {
 
   &::-webkit-scrollbar {
     @extend .bg_white, .br-0;
-    @include value_adaptive((width, height), 12, 4, $desktop, ($sm + 1));
-    @include value_change((width, height), null, 0, $sm);
+    @include value_adaptive((width, height), 12, 4, $desktop, ($sm + 1), $disableOn: $sm);
   }
 
   &::-webkit-scrollbar-thumb {
@@ -124,9 +125,6 @@ section {
 
 button {
   @extend .c-p, .p-0, .border-unset, .bg_transparent;
-  &:focus-visible {
-    @extend .outline-none;
-  }
 }
 
 :-webkit-any(article, aside, nav, section) h1,

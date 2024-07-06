@@ -129,10 +129,8 @@
           :nth-child(n) {
             color: $black;
           }
-          @media((hover) and (min-width: #{$sm + 1 + px})) {
-            &:hover {
-              background-color: rgba($black, .2);
-            }
+          @include hover {
+            background-color: rgba($black, .2);
           }
           &.is-disabled {
             pointer-events: none;

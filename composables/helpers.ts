@@ -492,17 +492,20 @@ export function useHelpers(){
   function stopScrollBody(status?: 'reset') {
 
     const HEADER = document.querySelector<HTMLElement>('.Header')
+    const TEMPLATE = document.querySelector<HTMLElement>('.TEMPLATE')
 
     if(status == 'reset') {
       document.body.style.pointerEvents = ''
       document.body.style.paddingRight = ''
       document.body.style.overflow = ''
+      TEMPLATE?.removeAttribute('inert')
       if(HEADER) HEADER.style.paddingRight = ''
       return
     }
 
     document.body.style.overflow = 'hidden'
     document.body.style.pointerEvents = 'none'
+    TEMPLATE?.setAttribute('inert', '')
 
     if(!statusBreakpoint.value.nowDESKTOP) {
       document.body.style.paddingRight = '12px'

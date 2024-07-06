@@ -101,7 +101,6 @@
     }
   }
   .fade-leave-active {
-    @include value_adaptive(padding-left, 12, 4, $desktop, ($sm + 1));
-    @include value_change(padding-left, null, unset, $sm);
+    @include value_adaptive(padding-left, 12, 4, $desktop, ($sm + 1), $disableOn: $sm);
   }
 </style>
