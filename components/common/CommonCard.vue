@@ -14,7 +14,7 @@
       remove
     </span>
     <h3 class="pb-15">CommonCard {{ item.price }} | {{ item.oldPrice }}</h3>
-    <UICounter
+    <UiCounter
       :key="item.count"
       :data="{
         count: item.count || 1
@@ -28,7 +28,7 @@
       @updateValue="(val) => item.count = val.count"
     />
     <div class="d-flex gap-15">
-      <UIButton
+      <UiButton
         :options="{
           disabled: false,
         }"
@@ -38,15 +38,15 @@
         })"
         >
         add cart
-      </UIButton>
-      <UIButton
+      </UiButton>
+      <UiButton
         :options="{
           disabled: false,
         }"
         @clickBtn="inFavorite(item.id) ? removeFavoriteItem(item.id) : addFavoriteItem(item)"
         >
         {{ inFavorite(item.id) ? 'remove favorite' : 'add favorite' }}
-      </UIButton>
+      </UiButton>
     </div>
   </div>
 </template>

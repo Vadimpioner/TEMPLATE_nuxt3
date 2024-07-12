@@ -8,7 +8,7 @@
     @submit.prevent
     >
 
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         label: validation.FORM.email.label,
@@ -20,7 +20,7 @@
       }"
       @updateValue="(val) => myForm.email.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         label: validation.FORM.password.label,
@@ -35,7 +35,7 @@
 
     <div class="__btns d-flex aie jcsb">
       <Transition name="fade" mode="out-in">
-        <UIButton
+        <UiButton
           :options="{
             error: validation.btnError,
             loading: validation.loading,
@@ -45,7 +45,7 @@
           @clickBtn="submit()"
           >
           {{ validation.status || 'Отправить' }}
-        </UIButton>
+        </UiButton>
       </Transition>
       <button @click="$emit('changeForm')">
         Забыли пароль?

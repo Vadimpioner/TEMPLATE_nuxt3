@@ -1,5 +1,5 @@
-export type AsideFiltersData = UICheckboxOptions & UIRangeOptions & {
-  componentName: 'UICheckbox' | 'UIRange',
-  data?: (UICheckboxData | UIRangeData)[],
-  view?: UICheckboxView
+export type AsideFiltersData = UiCheckboxOptions & UiRangeOptions & {
+  componentName: 'UiCheckbox' | 'UiRange',
+  data?: (UiCheckboxData | UiRangeData)[],
+  view?: UiCheckboxView
 }

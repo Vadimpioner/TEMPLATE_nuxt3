@@ -1,6 +1,6 @@
 import type { InjectionKey } from 'vue'
 
-export const UIAccordion = Symbol() as InjectionKey<{
+export const UiAccordion = Symbol() as InjectionKey<{
   count: number,
   active?: number,
   accordionSimple: boolean

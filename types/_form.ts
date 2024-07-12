@@ -9,7 +9,7 @@ export type _globalFormData = ({
       type: Extract<formType, 'text'>
       optionalData?: number
     }
-  } & (K extends 'textarea' ? UITextareaOptions : UIInputOptions)
+  } & (K extends 'textarea' ? UiTextareaOptions : UiInputOptions)
 } & {
   [K in Extract<formKey, 'password' | 'passwordRepeat'>]: {
     val: string,
@@ -21,7 +21,7 @@ export type _globalFormData = ({
         compareWithAnotherKeyIsVal?: Extract<formKey, 'password' | 'passwordRepeat'>
       }
     }
-  } & UIInputOptions
+  } & UiInputOptions
 } & {
   [K in Extract<formKey, 'email'>]: {
     val: string,
@@ -29,7 +29,7 @@ export type _globalFormData = ({
       type: Extract<formType, 'email'>,
       optionalData?: any
     }
-  } & UIInputOptions
+  } & UiInputOptions
 } & {
   [K in Extract<formKey, 'checkbox'>]: {
     val: boolean,
@@ -37,23 +37,23 @@ export type _globalFormData = ({
       type: Extract<formType, 'checkbox'>,
       optionalData?: any
     }
-  } & UICheckboxOptions
+  } & UiCheckboxOptions
 } & {
   [K in Extract<formKey, 'checkboxMultiple' | 'selectMultiple'>]: {
-    val: K extends 'checkboxMultiple' ? UICheckboxData[] : UISelectData[],
+    val: K extends 'checkboxMultiple' ? UiCheckboxData[] : UiSelectData[],
     inheritFrom: {
       type: Extract<formType, 'multiple'>,
       optionalData?: any
     }
-  } & (K extends 'checkboxMultiple' ? UICheckboxOptions : UISelectOptions)
+  } & (K extends 'checkboxMultiple' ? UiCheckboxOptions : UiSelectOptions)
 } & {
   [K in Extract<formKey, 'select'>]: {
-    val: UISelectData,
+    val: UiSelectData,
     inheritFrom: {
       type: Extract<formType, 'select'>,
       optionalData?: any
     }
-  } & UISelectOptions
+  } & UiSelectOptions
 } & {
   [K in Extract<formKey, 'time'>]: {
     val: string,
@@ -61,7 +61,7 @@ export type _globalFormData = ({
       type: Extract<formType, 'time'>,
       optionalData?: any
     }
-  } & UIInputOptions
+  } & UiInputOptions
 } & {
   [K in Extract<formKey, 'date' | 'dateTimeLocal'>]: {
     val: string,
@@ -72,7 +72,7 @@ export type _globalFormData = ({
         max?: string
       }
     }
-  } & UIInputOptions
+  } & UiInputOptions
 } & {
   [K in Extract<formKey, 'file' | 'fileMultiple'>]: {
     val: K extends 'file' ? (File | undefined) : File[],
@@ -80,7 +80,7 @@ export type _globalFormData = ({
       type: Extract<formType, 'file'>,
       optionalData?: any
     }
-  } & UIUploadOptions
+  } & UiUploadOptions
 })
 
 export type _globalFormBunch<K extends formType> = {

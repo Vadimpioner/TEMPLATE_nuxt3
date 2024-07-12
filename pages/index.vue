@@ -8,9 +8,9 @@
       :href="useLocalePath()('/catalog')"
     />
 
-    <UIAccordion accordionSimple>
+    <UiAccordion accordionSimple>
 
-      <UIAccordionItem> <!-- FormMain -->
+      <UiAccordionItem> <!-- FormMain -->
         <template #trigger>
           <span class="fz-20 fw600">FormMain</span>
         </template>
@@ -28,19 +28,19 @@
             }"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UICounter -->
+      <UiAccordionItem> <!-- UiCounter -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">UICounter</span>
-          <UIButton
+          <span class="fz-20 fw600">UiCounter</span>
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="counter.toggle = !counter.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <pre v-if="counter.toggle">
@@ -48,7 +48,7 @@
             withSelect - {{ counter.withSelect }}
           </pre>
           <div class="d-flex fd-c r-gap-15">
-            <UICounter
+            <UiCounter
               :data="counter.dataSimple"
               :options="{
                 max: 20,
@@ -59,7 +59,7 @@
               @updateValue="(val) => counter.simple = val.count"
             />
 
-            <UICounter
+            <UiCounter
               view="withSelect"
               :data="counter.dataPro"
               :options="{
@@ -73,14 +73,14 @@
             />
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIShare -->
+      <UiAccordionItem> <!-- UiShare -->
         <template #trigger>
-          <span class="fz-20 fw600">UIShare</span>
+          <span class="fz-20 fw600">UiShare</span>
         </template>
         <template #content>
-          <UIShare
+          <UiShare
             :param="{
               image: 'https://loremflickr.com/1200/1301',
               title: 'title',
@@ -88,19 +88,19 @@
             }"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIRadio -->
+      <UiAccordionItem> <!-- UiRadio -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">UIRadio</span>
-          <UIButton
+          <span class="fz-20 fw600">UiRadio</span>
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="radio.toggle = !radio.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
@@ -109,7 +109,7 @@
               circle - {{ radio.circle }}
               group - {{ radio.group }}
             </pre>
-            <UIRadio
+            <UiRadio
               :data="radio.data"
               :options="{
                 label: 'Табы',
@@ -120,7 +120,7 @@
               }"
               @updateValue="(val) => radio.tab = val"
             />
-            <UIRadio
+            <UiRadio
               view="circle"
               :data="radio.data"
               :options="{
@@ -128,7 +128,7 @@
               }"
               @updateValue="(val) => radio.circle = val"
             />
-            <UIRadio
+            <UiRadio
               view="group"
               :data="radio.data"
               :options="{
@@ -142,25 +142,25 @@
             />
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIRange -->
+      <UiAccordionItem> <!-- UiRange -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">UIRange</span>
-          <UIButton
+          <span class="fz-20 fw600">UiRange</span>
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="range.toggle = !range.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <pre v-if="range.toggle">
             result - {{ range.result }}
           </pre>
-          <UIRange
+          <UiRange
             :data="range.data"
             :options="{
               label: 'ЗАГОЛОВОК'
@@ -168,15 +168,15 @@
             @updateValue="(val) => range.result = val"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- Other -->
+      <UiAccordionItem> <!-- Other -->
         <template #trigger>
           <span class="fz-20 fw600">Other</span>
         </template>
         <template #content>
           <div class="d-flex flex-wrap gap-15">
-            <UIButton
+            <UiButton
               @click="
                 ElMessageBox.confirm(`Вы действительно хотите удалить?`, {
                   confirmButtonText: 'Да',
@@ -187,8 +187,8 @@
               "
               >
               confirm
-            </UIButton>
-            <UIButton
+            </UiButton>
+            <UiButton
               @click="ElMessage({
                 showClose: true,
                 message: 'Congrats, this is a success message. wefwe wefwefe',
@@ -196,8 +196,8 @@
               "
               >
               message
-            </UIButton>
-            <UIButton
+            </UiButton>
+            <UiButton
               @click="ElNotification({
                 title: 'Prompt',
                 message: '<strong>This is <i>HTML</i> string</strong>',
@@ -206,67 +206,67 @@
               })"
               >
               notification
-            </UIButton>
+            </UiButton>
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- Theme -->
+      <UiAccordionItem> <!-- Theme -->
         <template #trigger>
           <span class="fz-20 fw600">Theme</span>
         </template>
         <template #content>
-          <UITheme />
+          <UiTheme />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIMap -->
+      <UiAccordionItem> <!-- UiMap -->
         <template #trigger>
-          <span class="fz-20 fw600">UIMap</span>
+          <span class="fz-20 fw600">UiMap</span>
         </template>
         <template #content>
-          <UIMap
+          <UiMap
             :data="map"
             :options="{
               showAll: false
             }"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIBreadcrumbs -->
+      <UiAccordionItem> <!-- UiBreadcrumbs -->
         <template #trigger>
-          <span class="fz-20 fw600">UIBreadcrumbs</span>
+          <span class="fz-20 fw600">UiBreadcrumbs</span>
         </template>
         <template #content>
-          <UIBreadcrumbs :data="breadcrumbsList" />
+          <UiBreadcrumbs :data="breadcrumbsList" />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIShowMore -->
+      <UiAccordionItem> <!-- UiShowMore -->
         <template #trigger>
-          <span class="fz-20 fw600">UIShowMore</span>
+          <span class="fz-20 fw600">UiShowMore</span>
         </template>
         <template #content>
-          <UIShowMore
+          <UiShowMore
             :data="{
               shortText: showMore.shortText,
               fullText: showMore.fullText
             }"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UISlider -->
+      <UiAccordionItem> <!-- UiSlider -->
         <template #trigger>
-          <span class="fz-20 fw600">UISlider</span>
+          <span class="fz-20 fw600">UiSlider</span>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
 
             <div class="d-flex fd-c">
-              <h2>UISliderOne</h2>
-              <UISlider
+              <h2>UiSliderOne</h2>
+              <UiSlider
                 :options="{
                   slidesPerView: 'auto',
                   autoplay: false,
@@ -298,12 +298,12 @@
                     />
                   </div>
                 </SwiperSlide>
-              </UISlider>
+              </UiSlider>
             </div>
 
             <div class="d-flex fd-c">
-              <h2>UISliderTwo</h2>
-              <UISlider
+              <h2>UiSliderTwo</h2>
+              <UiSlider
                 view="two"
                 :options="{
                   slidesPerView: 'auto',
@@ -327,77 +327,77 @@
                     :imgAttrs="{class: 'obj-cover'}"
                   />
                 </SwiperSlide>
-              </UISlider>
+              </UiSlider>
             </div>
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIButton -->
+      <UiAccordionItem> <!-- UiButton -->
         <template #trigger>
           <span class="fz-20 fw600">Buttons</span>
         </template>
         <template #content>
           <div class="d-flex flex-wrap gap-20">
 
-            <UIButton>view One</UIButton>
+            <UiButton>view One</UiButton>
 
-            <UIButton view="two">view Two</UIButton>
+            <UiButton view="two">view Two</UiButton>
 
-            <UIButton
+            <UiButton
               :options="{
                 disabled: true,
               }"
               >
               disabled
-            </UIButton>
+            </UiButton>
 
-            <UIButton
+            <UiButton
               :options="{
                 error: btnError,
               }"
               @clickBtn="errorButton()"
               >
               error
-            </UIButton>
+            </UiButton>
 
-            <UIButton
+            <UiButton
               :options="{
                 loading: true,
               }"
               >
               loading
-            </UIButton>
+            </UiButton>
 
-            <UIButton
+            <UiButton
               view="two"
               :options="{
                 skeleton: true,
               }"
               >
               skeleton
-            </UIButton>
+            </UiButton>
 
-            <UIButton
+            <UiButton
               :options="{
                 to: 'https://vuejs.org/guide/typescript/composition-api.html',
                 target: '_blank'
               }"
               >
               link
-            </UIButton>
+            </UiButton>
 
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIModal -->
+      <UiAccordionItem> <!-- UiModal -->
         <template #trigger>
           <span class="fz-20 fw600">Modal</span>
         </template>
         <template #content>
-          <UIButton @clickBtn="showModal = true">showModal</UIButton>
-          <UIModal
+          <UiButton @clickBtn="showModal = true">showModal</UiButton>
+          <UiModal
             :showModal="showModal"
             :options="{
               closeIcon: true,
@@ -411,17 +411,17 @@
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati in ab debitis aut aliquam optio? Quasi, id? Accusamus maiores tempore ipsam est? Non, nostrum voluptate dicta repellendus vel tempore!</h1>
-          </UIModal>
+          </UiModal>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIInput -->
+      <UiAccordionItem> <!-- UiInput -->
         <template #trigger>
           <span class="fz-20 fw600">Input</span>
         </template>
         <template #content>
           <div class="d-flex fd-c r-gap-15">
-            <UIInput
+            <UiInput
               :options="{
                 label: 'simple',
                 placeholder: 'placeholder',
@@ -431,15 +431,15 @@
               >
               <template #prefix>prefix</template>
               <template #suffix>prefix</template>
-            </UIInput>
-            <UIInput
+            </UiInput>
+            <UiInput
               :options="{
                 label: 'simple done',
                 done: true,
               }"
               @updateValue="(val) => form.name = val"
             />
-            <UIInput
+            <UiInput
               :options="{
                 label: 'simple error',
                 error: true,
@@ -447,21 +447,21 @@
               }"
               @updateValue="(val) => form.name = val"
             />
-            <UIInput
+            <UiInput
               :options="{
                 label: 'reset value',
               }"
               @updateValue="(val) => form.reset = val"
               @reset="() => form.reset = ''"
             />
-            <UIInput
+            <UiInput
               :options="{
                 label: 'password',
                 type: 'password',
               }"
               @updateValue="(val) => form.password = val"
             />
-            <UIInput
+            <UiInput
               :options="{
                 label: 'phone',
                 inputmode: 'tel', // numeric - с маской || tel - без маски
@@ -469,7 +469,7 @@
               }"
               @updateValue="(val) => form.phone = val"
             />
-            <UIInput
+            <UiInput
               :options="{
                 label: 'disabled',
                 disabled: true,
@@ -478,14 +478,14 @@
             />
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UITextarea -->
+      <UiAccordionItem> <!-- UiTextarea -->
         <template #trigger>
           <span class="fz-20 fw600">Textarea</span>
         </template>
         <template #content>
-          <UITextarea
+          <UiTextarea
             :options="{
               label: 'textarea',
               placeholder: 'placeholder',
@@ -494,19 +494,19 @@
             @updateValue="(val) => textarea = val"
           />
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UIUpload -->
+      <UiAccordionItem> <!-- UiUpload -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">UIUpload</span>
-          <UIButton
+          <span class="fz-20 fw600">UiUpload</span>
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="upload.toggle = !upload.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <pre v-if="upload.toggle">
@@ -516,7 +516,7 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <UIUpload
+            <UiUpload
               :options="{
                 multiple: true,
                 label: 'multiple',
@@ -524,7 +524,7 @@
               }"
               @updateValue="(val: File[]) => upload.multiple = val"
             />
-            <UIUpload
+            <UiUpload
               :options="{
                 multiple: true,
                 error: false,
@@ -534,7 +534,7 @@
               }"
               @updateValue="(val: File[]) => upload.images = val"
             />
-            <UIUpload
+            <UiUpload
               :options="{
                 error: false,
                 label: 'basic'
@@ -543,19 +543,19 @@
             />
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UICheckbox -->
+      <UiAccordionItem> <!-- UiCheckbox -->
         <template #trigger="{ visibleAI }">
           <span class="fz-20 fw600">Checkbox</span>
-          <UIButton
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="checkbox.toggle = !checkbox.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <pre v-if="checkbox.toggle">
@@ -565,7 +565,7 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <UICheckbox
+            <UiCheckbox
               :options="{
                 label: 'лейбл чекбокс',
                 elName: 'Обычный чекбокс',
@@ -574,7 +574,7 @@
               @updateValue="(val: boolean) => checkbox.basic = val"
             />
 
-            <UICheckbox
+            <UiCheckbox
               :data="checkbox.data"
               :options="{
                 elName: 'Выделить все',
@@ -582,10 +582,10 @@
                 checkedList: checkbox.checkedList,
                 disabledList: checkbox.disabledList,
               }"
-              @updateValue="(val: UICheckboxData[]) => checkbox.multiple = val"
+              @updateValue="(val: UiCheckboxData[]) => checkbox.multiple = val"
             />
 
-            <UICheckbox
+            <UiCheckbox
               view="color"
               :data="checkbox.data"
               :options="{
@@ -597,19 +597,19 @@
           </div>
 
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-      <UIAccordionItem> <!-- UISelect -->
+      <UiAccordionItem> <!-- UiSelect -->
         <template #trigger="{ visibleAI }">
-          <span class="fz-20 fw600">UISelect</span>
-          <UIButton
+          <span class="fz-20 fw600">UiSelect</span>
+          <UiButton
             :class="[
               {'opacity-0 pointer-none': !visibleAI}
             ]"
             @clickBtn.stop="select.toggle = !select.toggle"
             >
             toggle data
-          </UIButton>
+          </UiButton>
         </template>
         <template #content>
           <pre v-if="select.toggle">
@@ -619,42 +619,42 @@
           </pre>
 
           <div class="d-flex fd-c r-gap-15">
-            <UISelect
+            <UiSelect
               :data="select.data"
               :options="{
                 label: 'Basic',
                 placeholder: 'Выбрать...',
                 customRequired: true,
               }"
-              @updateValue="(val: UISelectData) => select.basic = val"
+              @updateValue="(val: UiSelectData) => select.basic = val"
             />
-            <UISelect
+            <UiSelect
               :data="select.data"
               :options="{
                 placeholder: 'Выбрать картинку...',
                 checkedList: select.checkedList[0],
                 disabledList: select.checkedList,
               }"
-              @updateValue="(val: UISelectData) => select.images = val"
+              @updateValue="(val: UiSelectData) => select.images = val"
             />
-            <UISelect
+            <UiSelect
               :data="select.data"
               :options="{
                 multiple: true,
                 checkedList: select.checkedList,
                 disabledList: select.disabledList
               }"
-              @updateValue="(val: UISelectData[]) => select.multiple = val"
+              @updateValue="(val: UiSelectData[]) => select.multiple = val"
             />
           </div>
         </template>
-      </UIAccordionItem>
+      </UiAccordionItem>
 
-    </UIAccordion>
+    </UiAccordion>
   </div>
 
   <div class="over-x mt-30 mb-30">
-    <UICrawLine :data="crawLine" />
+    <UiCrawLine :data="crawLine" />
   </div>
 
 </template>
@@ -664,7 +664,7 @@
   const { $throw } = useNuxtApp()
   const { width, height, scrollY, scrollToggle, statusBreakpoint } = useResponsive()
 
-  //---UIRadio
+  //---UiRadio
   const radio = reactive({
     toggle: false,
 
@@ -762,7 +762,7 @@
     ],
   })
 
-  //---UIRange
+  //---UiRange
   const range = reactive({
     toggle: false,
 
@@ -923,7 +923,7 @@
     toggle: false,
 
     basic: false,
-    multiple: [] as UICheckboxData[],
+    multiple: [] as UiCheckboxData[],
     color: [],
 
     data: [
@@ -982,9 +982,9 @@
   const select = reactive({
     toggle: false,
 
-    basic: {} as UISelectData,
-    images: {} as UISelectData,
-    multiple: [] as UISelectData[],
+    basic: {} as UiSelectData,
+    images: {} as UiSelectData,
+    multiple: [] as UiSelectData[],
 
     data: [
       {
@@ -1133,7 +1133,7 @@
 </script>
 
 <style lang="scss" scoped>
-  :deep() .UIAccordionItem {
+  :deep() .UiAccordionItem {
     .__trigger {
       display: flex;
       align-items: center;

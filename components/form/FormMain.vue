@@ -9,7 +9,7 @@
     >
     <!-- <pre>{{ myForm }}</pre> -->
     <!-- <pre>{{ validation.FORM }}</pre> -->
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         placeholder: validation.FORM.email.placeholder,
@@ -20,7 +20,7 @@
       }"
       @updateValue="(val) => myForm.email.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         setValue: myForm.name.val,
         customRequired: true,
@@ -32,7 +32,7 @@
       }"
       @updateValue="(val) => myForm.name.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         placeholder: validation.FORM.phone.placeholder,
@@ -44,7 +44,7 @@
       }"
       @updateValue="(val) => myForm.phone.val = val"
     />
-    <UITextarea
+    <UiTextarea
       :options="{
         setValue: myForm.textarea.val,
         placeholder: validation.FORM.textarea.placeholder,
@@ -55,7 +55,7 @@
       }"
       @updateValue="(val) => myForm.textarea.val = val"
     />
-    <UICheckbox
+    <UiCheckbox
       :options="{
         elName: validation.FORM.checkbox.elName,
         error: validation.FORM.checkbox.error,
@@ -63,7 +63,7 @@
       }"
       @updateValue="(val: boolean) => myForm.checkbox.val = val"
     />
-    <UICheckbox
+    <UiCheckbox
       view="color"
       :data="data.checkboxData"
       :options="{
@@ -78,7 +78,7 @@
       }"
       @updateValue="(val: _globalData[]) => myForm.checkboxMultiple.val = val"
     />
-    <UISelect
+    <UiSelect
       :data="data.selectData"
       :options="{
         label: validation.FORM.select.label,
@@ -90,9 +90,9 @@
         checkedList: data.SELECTcheckedList[0],
         disabledList: data.SELECTdisabledList,
       }"
-      @updateValue="(val: UISelectData) => myForm.select.val = val"
+      @updateValue="(val: UiSelectData) => myForm.select.val = val"
     />
-    <UISelect
+    <UiSelect
       :data="data.selectData"
       :options="{
         multiple: true,
@@ -103,9 +103,9 @@
         checkedList: data.SELECTcheckedList,
         disabledList: data.SELECTdisabledList,
       }"
-      @updateValue="(val: UISelectData[]) => myForm.selectMultiple.val = val"
+      @updateValue="(val: UiSelectData[]) => myForm.selectMultiple.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         type: 'time',
         customRequired: true,
@@ -117,7 +117,7 @@
       }"
       @updateValue="(val) => myForm.time.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         type: 'date',
         customRequired: true,
@@ -131,7 +131,7 @@
       }"
       @updateValue="(val) => myForm.date.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         type: 'datetime-local',
         customRequired: true,
@@ -145,14 +145,14 @@
       }"
       @updateValue="(val) => myForm.dateTimeLocal.val = val"
     />
-    <UIUpload
+    <UiUpload
       :options="{
         label: validation.FORM.file.label,
         error: validation.FORM.file.error,
       }"
       @updateValue="(val: File) => myForm.file.val = val"
     />
-    <UIUpload
+    <UiUpload
       :options="{
         multiple: true,
         label: validation.FORM.fileMultiple.label,
@@ -162,7 +162,7 @@
       @updateValue="(val: File[]) => myForm.fileMultiple.val = val"
     />
     <Transition name="fade" mode="out-in">
-      <UIButton
+      <UiButton
         :options="{
           error: validation.btnError,
           loading: validation.loading,
@@ -171,7 +171,7 @@
         :key="validation.status"
         >
         {{ validation.status || 'Отправить' }}
-      </UIButton>
+      </UiButton>
     </Transition>
 
   </form>
@@ -196,7 +196,7 @@
     textarea: { val: 'lorem text', inheritFrom: { type: 'text', } },
     checkbox: { val: false, inheritFrom: { type: 'checkbox' } },
     checkboxMultiple: { val: [], inheritFrom: { type: 'multiple' } },
-    select: { val: {} as UISelectData, inheritFrom: { type: 'select' } },
+    select: { val: {} as UiSelectData, inheritFrom: { type: 'select' } },
     selectMultiple: { val: [], inheritFrom: { type: 'multiple' } },
     time: { val: '', inheritFrom: { type: 'time' } },
     date: { val: '', inheritFrom: { type: 'date' } },

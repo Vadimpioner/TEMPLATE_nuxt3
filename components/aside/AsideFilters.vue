@@ -34,7 +34,7 @@
       @updateValue="(val: unknown) => createFormParam(item, val)"
     />
     <div class="d-flex gap-20">
-      <UIButton
+      <UiButton
         v-loading="loadingBtn && loadingBtn['btnSend']"
         :options="{
           disabled: disabledBtnSend,
@@ -43,8 +43,8 @@
         @click="sendMyParent()"
         >
         Отправить
-      </UIButton>
-      <UIButton
+      </UiButton>
+      <UiButton
         v-loading="loadingBtn && loadingBtn['btnReset']"
         view="two"
         :options="{
@@ -54,7 +54,7 @@
         @click="sendMyParent(formInitial)"
         >
         Сбросить
-      </UIButton>
+      </UiButton>
     </div>
 
   </aside>
@@ -178,7 +178,7 @@
     checked?: AsideFiltersData['checked'],
     keyItem?: AsideFiltersData['key']
     ) => {
-    if(!['UICheckbox'].includes(componentName)) return false
+    if(!['UiCheckbox'].includes(componentName)) return false
 
     const checkedQuery = Object.values(Object.fromEntries(Object.entries(route.query).filter(([key]) => key == keyItem))).pop()
 
@@ -191,7 +191,7 @@
     dataList?: AsideFiltersData['data'],
     keyItem?: AsideFiltersData['key']
     ) => {
-    if(!['UICheckbox'].includes(componentName)) return false
+    if(!['UiCheckbox'].includes(componentName)) return false
 
     const checkedListQuery = Object.entries(route.query)
       .filter(([key]) => key.endsWith('_cb'))

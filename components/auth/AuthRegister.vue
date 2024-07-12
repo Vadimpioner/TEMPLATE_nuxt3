@@ -8,7 +8,7 @@
     @submit.prevent="submit()"
     >
 
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         label: validation.FORM.email.label,
@@ -20,7 +20,7 @@
       }"
       @updateValue="(val) => myForm.email.val = val"
     />
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         label: validation.FORM.password.label,
@@ -35,7 +35,7 @@
     />
 
     <Transition name="fade" mode="out-in">
-      <UIButton
+      <UiButton
         :options="{
           error: validation.btnError,
           loading: validation.loading,
@@ -44,7 +44,7 @@
         :key="validation.status"
         >
         {{ validation.status || 'Отправить' }}
-      </UIButton>
+      </UiButton>
     </Transition>
 
   </form>

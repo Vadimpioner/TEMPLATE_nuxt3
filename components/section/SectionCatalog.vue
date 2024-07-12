@@ -37,10 +37,10 @@
       <div class="__wrapper-right d-flex fd-c jcsb w100">
         <div class="_top d-flex aic jcsb">
           <Portal
-            to="__UISelect"
+            to="__UiSelect"
             :disabled="!statusBreakpoint.nowMOBILE"
             >
-            <UISelect
+            <UiSelect
               v-loading="loading.sort"
               :data="data.sort"
               :options="{
@@ -48,7 +48,7 @@
               }"
               :skeleton="loading.all"
               :class="['loadingGreen']"
-              @updateValue="(val: UISelectData) => {
+              @updateValue="(val: UiSelectData) => {
                 sort = val.key
                 loading.sort = true
                 showMobileMenu = ''
@@ -148,7 +148,7 @@
           />
           <PortalTarget
             v-if="showMobileMenu == 'Сортировка'"
-            name="__UISelect"
+            name="__UiSelect"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@
   type Props = {
     data: {
       aside: AsideFiltersData[],
-      sort: UISelectData[]
+      sort: UiSelectData[]
     }
   }
   const props = defineProps<Props>()
@@ -231,15 +231,15 @@
         if(item.key) acc.params[item.key].push(...item.checkedList?.map(obj => obj.key))
       } else if(item.elName && item.checked && item.key) {
         acc[item.key] = item.checked
-      } else if(['UIRange'].includes(item.componentName)) {
+      } else if(['UiRange'].includes(item.componentName)) {
         if(item.key && Array.isArray(item.data)) {
-          acc[item.key] = (item.data as UIRangeData[]).reduce((accumulate, itm) => {
+          acc[item.key] = (item.data as UiRangeData[]).reduce((accumulate, itm) => {
             accumulate[itm.key] = [Number(itm.min), Number(itm.max)]
             return accumulate
           }, {} as Record<string, number[]>)
         }
         if(!item.hasOwnProperty('key') && Array.isArray(item.data)) {
-          (item.data as UIRangeData[]).forEach((i) => {
+          (item.data as UiRangeData[]).forEach((i) => {
             if(i.key) acc[i.key] = [Number(i.min), Number(i.max)]
           })
         }
@@ -307,7 +307,7 @@
       &-left {}
       &-right {
         @include value_adaptive(row-gap, 64, 32);
-        .UISelect {
+        .UiSelect {
           &.loadingFetch {
             @include value_change(display, null, none !important, $mobile)
           }

@@ -8,7 +8,7 @@
     @submit.prevent="submit()"
     >
 
-    <UIInput
+    <UiInput
       :options="{
         customRequired: true,
         placeholder: validation.FORM.email.placeholder,
@@ -21,7 +21,7 @@
     />
 
     <Transition name="fade" mode="out-in">
-      <UIButton
+      <UiButton
         :options="{
           error: validation.btnError,
           loading: validation.loading,
@@ -30,7 +30,7 @@
         :key="validation.status"
         >
         {{ validation.status || 'Отправить' }}
-      </UIButton>
+      </UiButton>
     </Transition>
 
   </form>

@@ -36,19 +36,19 @@
   //---AsideFilters
   const asideFilters = reactive<AsideFiltersData[]>([
     {
-      componentName: 'UICheckbox',
+      componentName: 'UiCheckbox',
       elName: 'Согласен с условиями',
       key: 'agree',
       checked: false,
     },
     {
-      componentName: 'UICheckbox',
+      componentName: 'UiCheckbox',
       elName: 'Новые условия',
       key: 'newAgree',
       checked: true,
     },
     {
-      componentName: 'UIRange',
+      componentName: 'UiRange',
       toggleDeactivate: false,
       toggleVisible: true,
       toggleVisibleStatus: false,
@@ -68,7 +68,7 @@
       ]
     },
     {
-      componentName: 'UICheckbox',
+      componentName: 'UiCheckbox',
       label: 'Цвета',
       key: 'colors',
       trimTo: 5,
@@ -128,7 +128,7 @@
       ]
     },
     {
-      componentName: 'UIRange',
+      componentName: 'UiRange',
       label: 'Размеры, см',
       key: 'sizes',
       toggleDeactivate: false,
@@ -150,7 +150,7 @@
       ]
     },
     {
-      componentName: 'UICheckbox',
+      componentName: 'UiCheckbox',
       label: 'Цифры',
       key: 'numbers',
       trimTo: 1,
