@@ -303,7 +303,7 @@
 <style scoped lang="scss">
   .SectionCatalog {
     .__wrapper {
-      @include value_adaptive(gap, 64, 32, $desktop, ($mobile + 1));
+      @include value_adaptive(gap, 64, 32, $desktop, $mobile);
       &-left {}
       &-right {
         @include value_adaptive(row-gap, 64, 32);

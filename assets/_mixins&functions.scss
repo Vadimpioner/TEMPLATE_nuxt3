@@ -10,12 +10,13 @@
   ) {
 
   $addSize: $starSize - $minSize;
+  $finalEndBreakpoint: if($endBreakpoint == $dno, $endBreakpoint, $endBreakpoint + 1);
 
-  @media #{if($disableOn, "(min-width: #{$disableOn + px})", all)} {
+  @media #{if($disableOn, "(min-width: #{$disableOn + 1 + px})", all)} {
 
     @each $property in $properties {
       $importantSuffix: if($important, !important, null);
-      $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$endBreakpoint + px}) / (#{$startBreakpoint} - #{$endBreakpoint}))) $importantSuffix;
+      $calc: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$finalEndBreakpoint + px}) / (#{$startBreakpoint} - #{$finalEndBreakpoint}))) $importantSuffix;
 
       #{$property}: ($starSize + px) $importantSuffix;
 
@@ -37,7 +38,7 @@
   $disableOn: null
   ) {
 
-  @media #{if($disableOn, "(min-width: #{$disableOn + px})", all)} {
+  @media #{if($disableOn, "(min-width: #{$disableOn + 1 + px})", all)} {
 
     @each $property in $properties {
 

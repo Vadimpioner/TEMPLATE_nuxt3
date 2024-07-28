@@ -26,13 +26,13 @@
       @include value_change(display, null, none, $sm);
     }
     @extend .bg_white;
-    @include value_adaptive((width, height), 4, 2, $desktop, ($sm + 1));
-    @include value_adaptive(border-radius, 2, 1.5, $desktop, ($sm + 1));
+    @include value_adaptive((width, height), 4, 2, $desktop, $sm);
+    @include value_adaptive(border-radius, 2, 1.5, $desktop, $sm);
   }
 
   ::-webkit-scrollbar-thumb {
     @extend .bg_blue;
-    @include value_adaptive(border-radius, 2, 1.5, $desktop, ($sm + 1));
+    @include value_adaptive(border-radius, 2, 1.5, $desktop, $sm);
   }
 
 }
@@ -98,7 +98,7 @@ body {
 
   &::-webkit-scrollbar {
     @extend .bg_white, .br-0;
-    @include value_adaptive((width, height), 12, 4, $desktop, ($sm + 1), $disableOn: $sm);
+    @include value_adaptive((width, height), 12, 4, $desktop, $sm, $disableOn: $sm);
   }
 
   &::-webkit-scrollbar-thumb {

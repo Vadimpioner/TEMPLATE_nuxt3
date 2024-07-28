@@ -64,7 +64,7 @@
 
 .scrollAlways {
   &::-webkit-scrollbar {
-    @include value_adaptive((width, height), 4, 2, $desktop, ($sm + 1));
+    @include value_adaptive((width, height), 4, 2, $desktop, $sm);
     @include value_change((width, height), null, 2px, $sm);
   }
 }
@@ -363,7 +363,7 @@
   }
 }
 .el-popup-parent--hidden {
-  @include value_adaptive(padding-right, 12, 4, $desktop, ($sm + 1), $disableOn: $sm, $important: true);
+  @include value_adaptive(padding-right, 12, 4, $desktop, $sm, $disableOn: $sm, $important: true);
 }
 .el-slider {
   &::before, &::after {

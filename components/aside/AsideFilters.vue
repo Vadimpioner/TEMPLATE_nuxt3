@@ -237,11 +237,11 @@
     padding: 15px;
     row-gap: 15px;
     background-color: rgba($gray, .5);
-    @include value_adaptive((max-width, min-width), 320, 300, $desktop, ($mobile + 1));
+    @include value_adaptive((max-width, min-width), 320, 300, $desktop, $mobile);
     @include value_change(max-width, null, 100%, $mobile);
     @include value_change(min-width, null, unset, $mobile);
     &.loadingFetch {
-      @include value_adaptive(min-height, 320, 300, $desktop, ($mobile + 1));
+      @include value_adaptive(min-height, 320, 300, $desktop, $mobile);
       @include value_change(display, null, none !important, $mobile)
     }
   }
