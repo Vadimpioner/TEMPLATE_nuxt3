@@ -1,28 +1,23 @@
 import type { ObjectDirective } from 'vue'
 
-interface HTMLElementWithClickOutside extends HTMLElement {
-  __vueClickOutside__: any;
-}
+type customHTMLElement = {
+  _clickOutside: (event: MouseEvent) => void;
+} & HTMLElement
 
-const outsideDirective: ObjectDirective<HTMLElementWithClickOutside> = {
+const outsideDirective: ObjectDirective<customHTMLElement> = {
   beforeMount(el, binding, vNode) {
     const bubble = binding.modifiers.bubble
-    const handler = (e: MouseEvent) => {
+    el._clickOutside = (e) => {
       if(bubble || (!el.contains(e.target as Node) && el !== e.target)) {
         binding.value(e)
       }
     }
-    el.__vueClickOutside__ = handler
 
-    document.addEventListener('click', handler)
+    document.addEventListener('click', el._clickOutside)
   },
 
   unmounted(el) {
-    const handler = el.__vueClickOutside__
-    if(handler) {
-      document.removeEventListener('click', handler)
-      delete el.__vueClickOutside__
-    }
+    document.removeEventListener('click', el._clickOutside)
   }
 }
 

@@ -33,8 +33,13 @@ export function useResponsive() {
     clientReady.value = true
     updateScollY()
     window.addEventListener('scroll', updateScollY)
-    window.addEventListener('resize', () => updateResponsive())
+    window.addEventListener('resize', updateResponsive)
     updateResponsive()
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('scroll', updateScollY)
+    window.removeEventListener('resize', updateResponsive)
   })
 
   return {

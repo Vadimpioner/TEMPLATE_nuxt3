@@ -269,9 +269,9 @@
         })
 
         elemList[elemList.length - 1].style.opacity = '1'
-        let close = [...document.querySelectorAll('.gm-ui-hover-effect')]
+        let closeIcons = [...document.querySelectorAll('.gm-ui-hover-effect')]
 
-        close.forEach((item) => {
+        closeIcons.forEach((item) => {
           item.addEventListener('click', () => {
             elemList[elemList.length - 1].style.opacity = '0'
             elemList[elemList.length - 1].classList.remove('gm-ui-hover-effect')
