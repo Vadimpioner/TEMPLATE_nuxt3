@@ -56,12 +56,12 @@ picture, svg {
   @extend .green, .bg_white;
 }
 
-:focus-within {
+:focus-within, :focus-visible {
   outline: none;
 }
 
 button:not([class^="UiButton"]), a {
-  &:focus-within {
+  &:focus-visible {
     box-shadow: inset 0 0 0 1px $green;
   }
 }

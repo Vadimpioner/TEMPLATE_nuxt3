@@ -68,7 +68,7 @@
     }
     &__one {
       background-color: $blue;
-      &:focus-within {
+      &:focus-visible {
         box-shadow: 0px 5px 20px rgba($blue, .6);
       }
       @include hover {
@@ -77,7 +77,7 @@
     }
     &__two {
       background-color: $green;
-      &:focus-within {
+      &:focus-visible {
         box-shadow: 0px 5px 20px rgba($blue, .4);
       }
       @include hover {
