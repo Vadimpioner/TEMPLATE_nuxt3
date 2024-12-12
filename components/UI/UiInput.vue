@@ -191,7 +191,7 @@
       &.suffix {
         @include value_adaptive(padding-right, 16, 8);
       }
-      &.focus, &:focus-visible {
+      &.focus, &:focus-within {
         border-color: $blue !important;
       }
       &.done {
