@@ -8,6 +8,7 @@
 
   import { UiAccordion } from '~/injects'
 
+  type UiAccordionType = typeof UiAccordion extends InjectionKey<infer T> ? T : never
   type Props = {
     accordionSimple?: boolean
   }
@@ -16,9 +17,8 @@
     default: () => unknown
   }>()
 
-  const count = ref(0)
-
-  const active = ref(undefined)
+  const count = ref<UiAccordionType['count']>(0)
+  const active = ref<UiAccordionType['active']>(undefined)
 
   provide(UiAccordion, {
     count: count.value,

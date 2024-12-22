@@ -46,19 +46,16 @@
   }>()
 
   const visible = computed(() => {
-    if(accordion.value?.accordionSimple) return localShow.value
-    return index.value == accordion.value?.active
+    if(accordion.accordionSimple) return localShow.value
+    return index.value == accordion.active
   })
-
-  const accordion = ref(inject(UiAccordion))
-
-  const index = ref(accordion.value && accordion.value.count++)
-
+  const accordion = reactive(inject(UiAccordion)!)
+  const index = ref(accordion && accordion.count++)
   const localShow = ref(props.show || false)
 
   const open = () => {
     localShow.value = !localShow.value
-    if(accordion.value) accordion.value.active = visible.value ? undefined : index.value
+    accordion.active = visible.value ? undefined : index.value
   }
 
 </script>
